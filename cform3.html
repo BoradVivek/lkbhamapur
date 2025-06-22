@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smt Labhuben Kanjibhai Babariya Secondary and Higher Secondary School Hamapur - 11th Std Arts Admission</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter for body, Monoton for display -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Monoton&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            background-size: 400% 400%;
+            animation: gradientAnimation 15s ease infinite;
+            color: #e0e0e0;
+            overflow-x: hidden;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .neon-text {
+            font-family: 'Monoton', cursive;
+            text-shadow:
+                0 0 5px #fff,
+                0 0 10px #fff,
+                0 0 20px #fff,
+                0 0 40px #0ff,
+                0 0 80px #0ff,
+                0 0 90px #0ff,
+                0 0 100px #0ff,
+                0 0 150px #0ff;
+            color: #f0f0f0;
+        }
+
+        .decorative-light-left,
+        .decorative-light-right {
+            position: absolute;
+            width: 100px;
+            height: 300px;
+            background: linear-gradient(to bottom, rgba(255, 0, 255, 0.5), rgba(0, 255, 255, 0));
+            filter: blur(80px);
+            opacity: 0.6;
+            animation: pulse-light 5s infinite alternate;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .decorative-light-left {
+            top: 10%;
+            left: -50px;
+            transform: rotate(-30deg);
+        }
+
+        .decorative-light-right {
+            top: 30%;
+            right: -50px;
+            transform: rotate(30deg);
+            background: linear-gradient(to bottom, rgba(0, 255, 255, 0.5), rgba(255, 0, 255, 0));
+        }
+
+        @keyframes pulse-light {
+            0% { transform: scale(1) rotate(0deg); opacity: 0.6; }
+            50% { transform: scale(1.1) rotate(5deg); opacity: 0.8; }
+            100% { transform: scale(1) rotate(0deg); opacity: 0.6; }
+        }
+
+        .content-section {
+            background-color: rgba(15, 12, 41, 0.7);
+            border-radius: 1.5rem;
+            padding: 2.5rem;
+            margin-bottom: 2.5rem;
+            text-align: center;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 2px solid transparent;
+            position: relative;
+        }
+
+        .content-section:hover {
+            transform: translateY(-8px);
+            box-shadow:
+                0 0 20px #06f,
+                0 0 40px #f06,
+                0 0 80px #a600ff,
+                0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            border-color: #0ff;
+        }
+
+        .content-section h2 {
+            font-family: 'Monoton', cursive;
+            text-shadow:
+                0 0 5px #fff,
+                0 0 10px #fff,
+                0 0 20px #fff,
+                0 0 40px #0ff;
+            color: #f0f0f0;
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+        }
+
+        /* Form specific styles */
+        .form-section {
+            display: none; /* Hidden by default for tabs */
+            text-align: left;
+            padding-top: 1.5rem;
+        }
+        .form-section.active {
+            display: block;
+        }
+        .form-group {
+            margin-bottom: 1.25rem;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #0ff; /* Neon cyan for labels */
+        }
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group input[type="tel"],
+        .form-group input[type="date"],
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(0, 255, 255, 0.5); /* Neon border */
+            border-radius: 0.5rem;
+            color: #e0e0e0;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .form-group input[type="text"]:focus,
+        .form-group input[type="email"]:focus,
+        .form-group input[type="tel"]:focus,
+        .form-group input[type="date"]:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #f06; /* Pink glow on focus */
+            box-shadow: 0 0 8px #f06;
+        }
+        .form-group textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        /* Tab styling */
+        .tab-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid rgba(0, 255, 255, 0.3);
+            padding-bottom: 1rem;
+        }
+        .tab-button {
+            background-color: transparent;
+            border: 2px solid rgba(0, 255, 255, 0.3);
+            color: #0ff;
+            padding: 0.75rem 1.5rem;
+            border-radius: 9999px; /* Pill shape */
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            box-shadow: 0 0 8px rgba(0, 255, 255, 0.2);
+        }
+        .tab-button:hover:not(.active) {
+            background-color: rgba(0, 255, 255, 0.1);
+            color: #fff;
+            text-shadow: 0 0 5px #fff, 0 0 10px #0ff;
+            transform: translateY(-2px);
+        }
+        .tab-button.active {
+            background-image: linear-gradient(45deg, #00C9FF 0%, #92FE9D 100%);
+            color: #1a153a;
+            border-color: transparent;
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.7), 0 0 25px rgba(146, 254, 157, 0.5);
+            transform: translateY(-2px);
+        }
+        .submit-button {
+            background-image: linear-gradient(to right, #FF006E 0%, #FFBE0B 51%, #FF006E 100%);
+            margin-top: 2rem;
+            padding: 1rem 3rem;
+            text-align: center;
+            text-transform: uppercase;
+            transition: 0.5s;
+            background-size: 200% auto;
+            color: white;
+            box-shadow: 0 0 10px #eee;
+            border-radius: 0.75rem;
+            cursor: pointer;
+            border: none;
+            outline: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+            display: block; /* Make it a block element to center with mx-auto */
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .submit-button:hover {
+            background-position: right center;
+            color: #fff;
+            text-decoration: none;
+            box-shadow: 0 0 20px #FF006E, 0 0 30px #FFBE0B;
+        }
+
+        .documents-list li {
+            margin-bottom: 0.5rem;
+            list-style: none; /* Remove default bullet points */
+            color: #c0c0c0;
+        }
+        .documents-list li::before {
+            content: '✓'; /* Custom checkmark */
+            color: #92FE9D; /* Green checkmark */
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+            margin-right: 0.5em;
+        }
+    </style>
+</head>
+<body class="flex flex-col items-center justify-between relative">
+    <div class="decorative-light-left hidden md:block"></div>
+    <div class="decorative-light-right hidden md:block"></div>
+
+    <div class="content-container w-full max-w-6xl mx-auto z-10">
+        <header class="w-full py-6 px-4 z-50 sticky top-0 bg-gray-900 bg-opacity-90 flex items-center justify-start">
+            <img src="images/LOGO2.png" alt="School Logo" class="h-24 sm:h-32 mr-4 flex-shrink-0">
+            <div class="flex flex-col flex-grow text-center">
+                <h1 class="text-3xl md:text-5xl font-bold uppercase tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 pb-1 leading-none w-full">
+                    SMT LABHUBEN KANJIBHAI BABARIYA SECONDARY AND HIGHER SECONDARY SCHOOL HAMAPUR
+                </h1>
+                
+            </div>
+            <div class="h-24 sm:h-32 flex-shrink-0" style="width: calc(6rem + 1rem);"></div>
+        </header>
+
+        <main class="flex-grow flex flex-col items-center justify-center w-full p-4 md:p-8">
+            <div class="text-center mb-10">
+                <h2 class="text-6xl md:text-8xl font-extrabold neon-text animate-pulse mb-4 leading-tight">
+                    ADMISSION FORM
+                </h2>
+                <p class="text-4xl md:text-6xl font-semibold text-white tracking-wide">
+                    11th Standard - Arts Stream
+                </p>
+                <p class="text-xl md:text-2xl text-gray-400 mt-4 max-w-3xl mx-auto">
+                    Apply for admission to 11th Standard Arts Stream for the upcoming academic year.
+                </p>
+            </div>
+
+            <section id="admission-form-11th-arts" class="content-section w-full mx-auto my-8" tabindex="0">
+                <h2>Application for 11th Standard (Arts)</h2>
+                <p class="text-gray-300 mb-8">Please fill out all the required fields accurately.</p>
+
+                <form action="#" method="POST" class="w-full">
+                    <!-- Tab Buttons -->
+                    <div class="tab-buttons" role="tablist">
+                        <button type="button" class="tab-button active" data-tab="personal-details" role="tab" aria-controls="personal-details-panel" aria-selected="true">Student Details</button>
+                        <button type="button" class="tab-button" data-tab="parent-details" role="tab" aria-controls="parent-details-panel" aria-selected="false">Parent Details</button>
+                        <button type="button" class="tab-button" data-tab="academic-details" role="tab" aria-controls="academic-details-panel" aria-selected="false">Academic History</button>
+                        <button type="button" class="tab-button" data-tab="documents-declaration" role="tab" aria-controls="documents-declaration-panel" aria-selected="false">Documents & Declaration</button>
+                    </div>
+
+                    <!-- Student Personal Details Section -->
+                    <div id="personal-details-panel" class="form-section active" role="tabpanel" aria-labelledby="personal-details-tab">
+                        <h3 class="text-2xl font-bold text-yellow-400 mb-6 text-center">Student Personal Details</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="form-group">
+                                <label for="student-name">Full Name of Student</label>
+                                <input type="text" id="student-name" name="student_name" placeholder="Enter full name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="dob">Date of Birth</label>
+                                <input type="date" id="dob" name="dob" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="gender">Gender</label>
+                                <select id="gender" name="gender" required>
+                                    <option value="">Select Gender</option>
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="aadhaar">Aadhaar Number</label>
+                                <input type="text" id="aadhaar" name="aadhaar" placeholder="Enter Aadhaar number" pattern="\d{12}" title="Aadhaar number must be 12 digits">
+                            </div>
+                            <div class="form-group">
+                                <label for="address">Permanent Address</label>
+                                <textarea id="address" name="address" rows="3" placeholder="Enter permanent address" required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="city">City</label>
+                                <input type="text" id="city" name="city" placeholder="Enter city" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="pincode">Pincode</label>
+                                <input type="text" id="pincode" name="pincode" placeholder="Enter pincode" pattern="\d{6}" title="Pincode must be 6 digits" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Student Email (Optional)</label>
+                                <input type="email" id="email" name="student_email" placeholder="student@example.com">
+                            </div>
+                            <div class="form-group">
+                                <label for="mobile">Student Mobile (Optional)</label>
+                                <input type="tel" id="mobile" name="student_mobile" placeholder="e.g., 9876543210" pattern="[0-9]{10}" title="Mobile number must be 10 digits">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Parent/Guardian Details Section -->
+                    <div id="parent-details-panel" class="form-section" role="tabpanel" aria-labelledby="parent-details-tab">
+                        <h3 class="text-2xl font-bold text-yellow-400 mb-6 text-center">Parent/Guardian Details</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="form-group">
+                                <label for="father-name">Father's Full Name</label>
+                                <input type="text" id="father-name" name="father_name" placeholder="Enter father's full name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="father-occupation">Father's Occupation</label>
+                                <input type="text" id="father-occupation" name="father_occupation" placeholder="e.g., Engineer, Farmer">
+                            </div>
+                            <div class="form-group">
+                                <label for="father-mobile">Father's Mobile Number</label>
+                                <input type="tel" id="father-mobile" name="father_mobile" placeholder="e.g., 9876543210" pattern="[0-9]{10}" title="Mobile number must be 10 digits" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="mother-name">Mother's Full Name</label>
+                                <input type="text" id="mother-name" name="mother_name" placeholder="Enter mother's full name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="mother-occupation">Mother's Occupation</label>
+                                <input type="text" id="mother-occupation" name="mother_occupation" placeholder="e.g., Homemaker, Teacher">
+                            </div>
+                            <div class="form-group">
+                                <label for="parent-email">Parent/Guardian Email</label>
+                                <input type="email" id="parent-email" name="parent_email" placeholder="parent@example.com" required>
+                            </div>
+                            <div class="form-group col-span-1 md:col-span-2">
+                                <label for="guardian-if-different">Guardian's Name (if different from parents)</label>
+                                <input type="text" id="guardian-if-different" name="guardian_name" placeholder="Enter guardian's name">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Previous Academic Details Section -->
+                    <div id="academic-details-panel" class="form-section" role="tabpanel" aria-labelledby="academic-details-tab">
+                        <h3 class="text-2xl font-bold text-yellow-400 mb-6 text-center">Previous Academic History (10th Standard)</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="form-group">
+                                <label for="last-school">Last School Attended</label>
+                                <input type="text" id="last-school" name="last_school" placeholder="Name of last school" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="last-class">Last Class Attended (10th Std)</label>
+                                <input type="text" id="last-class" name="last_class" value="10th Standard" readonly>
+                            </div>
+                            <div class="form-group">
+                                <label for="board">Board (10th Std)</label>
+                                <input type="text" id="board" name="board" placeholder="e.g., GSEB, CBSE" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="passing-year">Year of Passing 10th Standard</label>
+                                <input type="text" id="passing-year" name="passing_year" placeholder="e.g., 2024" pattern="\d{4}" title="Year must be 4 digits" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="marks-percentage-10th">Percentage/Grade in 10th Standard</label>
+                                <input type="text" id="marks-percentage-10th" name="marks_percentage_10th" placeholder="e.g., 85% / A Grade" required>
+                            </div>
+                            <div class="form-group col-span-1 md:col-span-2">
+                                <label for="desired-subjects">Desired Subjects for Arts Stream</label>
+                                <p class="text-gray-300 text-sm">Typical subjects include: History, Sociology, Psychology, Geography, Political Science, English, Gujarati/Hindi, Philosophy (optional).</p>
+                                <textarea id="desired-subjects" name="desired_subjects" rows="2" placeholder="List desired subjects (e.g., History, Sociology)" required></textarea>
+                            </div>
+                            <div class="form-group col-span-1 md:col-span-2">
+                                <label for="remarks-academic">Any other relevant academic remarks?</label>
+                                <textarea id="remarks-academic" name="remarks_academic" rows="2" placeholder="e.g., participation in academic competitions, special achievements"></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Documents Required & Declaration Section -->
+                    <div id="documents-declaration-panel" class="form-section" role="tabpanel" aria-labelledby="documents-declaration-tab">
+                        <h3 class="text-2xl font-bold text-yellow-400 mb-6 text-center">Documents Required & Declaration</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="form-group">
+                                <label class="block mb-2 font-bold text-cyan-400">Documents to be Submitted (Photocopies):</label>
+                                <ul class="documents-list text-left text-gray-300">
+                                    <li>✓ Birth Certificate</li>
+                                    <li>✓ School Leaving Certificate (L.C.) from 10th Std</li>
+                                    <li>✓ Marksheet of 10th Standard (Board Exam)</li>
+                                    <li>✓ Aadhaar Card of Student</li>
+                                    <li>✓ Aadhaar Card of Father</li>
+                                    <li>✓ Passport size photographs (2)</li>
+                                    <li>✓ Caste Certificate (if applicable)</li>
+                                </ul>
+                            </div>
+                            <div class="form-group">
+                                <label class="block mb-2 font-bold text-cyan-400">Declaration:</label>
+                                <p class="text-gray-300 text-sm mb-4">
+                                    I hereby declare that all the information provided in this application form is true and correct to the best of my knowledge and belief. I understand that any false information may lead to the cancellation of admission.
+                                </p>
+                                <div class="flex items-center mb-4">
+                                    <input type="checkbox" id="declaration" name="declaration" class="form-checkbox h-5 w-5 text-green-500 rounded border-gray-300 focus:ring-green-400 mr-2" required>
+                                    <label for="declaration" class="text-gray-200 text-base">I agree to the above declaration.</label>
+                                </div>
+                                <div class="form-group">
+                                    <label for="parent-signature">Parent/Guardian Signature (Type Full Name)</label>
+                                    <input type="text" id="parent-signature" name="parent_signature" placeholder="Type your full name as signature" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="application-date">Date of Application</label>
+                                    <input type="date" id="application-date" name="application_date" required>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="submit-button">Submit Application</button>
+                </form>
+            </section>
+        </main>
+
+        <footer class="w-full text-center py-6 px-4 mt-8 z-10">
+            <p class="text-lg md:text-xl font-bold uppercase tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-red-400 via-yellow-500 to-green-500 pb-1">
+                Smt. Labhuben Kanjibhai Babariya Secondary and Higher Secondary School Hamapur
+            </p>
+            <p class="text-sm md:text-md text-gray-400">&copy; 2025 All Rights Reserved. Designed with ❤️</p>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const formSections = document.querySelectorAll('.form-section');
+
+            function showTab(tabId) {
+                formSections.forEach(section => {
+                    section.classList.remove('active');
+                });
+                tabButtons.forEach(button => {
+                    button.classList.remove('active');
+                    button.setAttribute('aria-selected', 'false');
+                });
+
+                document.getElementById(tabId + '-panel').classList.add('active');
+                document.querySelector(`[data-tab="${tabId}"]`).classList.add('active');
+                document.querySelector(`[data-tab="${tabId}"]`).setAttribute('aria-selected', 'true');
+            }
+
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const tabId = button.dataset.tab;
+                    showTab(tabId);
+                });
+            });
+
+            // Optional: Basic form validation before tab switch (can be expanded)
+            document.querySelector('form').addEventListener('submit', function(event) {
+                const activeSection = document.querySelector('.form-section.active');
+                const inputsInActiveSection = activeSection.querySelectorAll('input[required], select[required], textarea[required]');
+                let allFieldsFilled = true;
+                inputsInActiveSection.forEach(input => {
+                    if (!input.value.trim()) {
+                        allFieldsFilled = false;
+                        input.focus(); // Focus on the first empty required field
+                        alert(`Please fill in the required field: ${input.previousElementSibling ? input.previousElementSibling.textContent : input.placeholder}`);
+                        event.preventDefault();
+                        return;
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

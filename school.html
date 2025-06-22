@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SMT Labhuben Kanjibhai Babariya Secondary and Higher Secondary School Hamapur</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter for body, Monoton for display -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Monoton&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            /* Gradient background for a vibrant look */
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            background-size: 400% 400%;
+            animation: gradientAnimation 15s ease infinite;
+            color: #e0e0e0; /* Light text color for contrast */
+            overflow-x: hidden; /* Prevent horizontal scrolling for the entire body */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            padding: 0; /* Removed overall page padding as requested */
+        }
+
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Custom CSS for Neon Effect */
+        .neon-text {
+            font-family: 'Monoton', cursive;
+            text-shadow:
+                0 0 5px #fff,
+                0 0 10px #fff,
+                0 0 20px #fff,
+                0 0 40px #0ff, /* Cyan neon glow */
+                0 0 80px #0ff,
+                0 0 90px #0ff,
+                0 0 100px #0ff,
+                0 0 150px #0ff;
+            color: #f0f0f0; /* Base color for neon text */
+        }
+
+        .neon-glow-pink {
+            box-shadow:
+                0 0 5px #fff,
+                0 0 10px #fff,
+                0 0 15px #f06, /* Pink neon glow */
+                0 0 20px #f06,
+                0 0 25px #f06,
+                0 0 30px #f06;
+        }
+
+        .neon-glow-blue {
+            box-shadow:
+                0 0 5px #fff,
+                0 0 10px #fff,
+                0 0 15px #06f, /* Blue neon glow */
+                0 0 20px #06f,
+                0 0 25px #06f,
+                0 0 30px #06f;
+        }
+
+        .decorative-light-left,
+        .decorative-light-right {
+            position: absolute;
+            width: 100px;
+            height: 300px;
+            background: linear-gradient(to bottom, rgba(255, 0, 255, 0.5), rgba(0, 255, 255, 0)); /* Purple to Cyan */
+            filter: blur(80px);
+            opacity: 0.6;
+            animation: pulse-light 5s infinite alternate;
+            z-index: 0;
+            pointer-events: none; /* Ensure they don't block interactions */
+        }
+
+        .decorative-light-left {
+            top: 10%;
+            left: -50px;
+            transform: rotate(-30deg);
+        }
+
+        .decorative-light-right {
+            top: 30%;
+            right: -50px;
+            transform: rotate(30deg);
+            background: linear-gradient(to bottom, rgba(0, 255, 255, 0.5), rgba(255, 0, 255, 0)); /* Cyan to Purple */
+        }
+
+        @keyframes pulse-light {
+            0% { transform: scale(1) rotate(0deg); opacity: 0.6; }
+            50% { transform: scale(1.1) rotate(5deg); opacity: 0.8; }
+            100% { transform: scale(1) rotate(0deg); opacity: 0.6; }
+        }
+
+        /* Styling for navigation buttons and dropdowns to match neon theme */
+        .dropdown-button {
+            background-color: transparent;
+            border: none;
+            color: #fff;
+            padding: 0.75rem 0.8rem; /* Adjusted horizontal padding */
+            font-weight: 600;
+            cursor: pointer;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+            position: relative; /* Needed for pseudo-elements */
+            overflow: hidden; /* Hide overflow of glow */
+            font-size: 0.95rem; /* Slightly reduced font size for tabs */
+        }
+
+        .dropdown-button:hover {
+            color: #0ff; /* Cyan glow on text */
+            text-shadow: 0 0 8px #0ff, 0 0 15px #0ff;
+            background-color: rgba(0, 255, 255, 0.1); /* Subtle background highlight */
+        }
+
+        .dropdown-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #f06, #0ff); /* Pink to Cyan gradient */
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: -1;
+            filter: blur(15px); /* Soft blur for the glow */
+        }
+
+        .dropdown-button:hover::before {
+            opacity: 0.3; /* Show the subtle glow on hover */
+        }
+
+
+        .dropdown-menu {
+            position: absolute;
+            background: linear-gradient(135deg, #1a153a, #2a255a); /* Darker gradient for menu */
+            border-radius: 0.75rem;
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.5), 0 0 25px rgba(255, 0, 255, 0.5); /* Dual neon glow */
+            padding: 0.5rem 0;
+            min-width: 160px;
+            z-index: 20;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 0.75rem 1.5rem;
+            color: #e0e0e0;
+            text-decoration: none;
+            transition: background-color 0.2s ease, color 0.2s ease, text-shadow 0.2s ease;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: rgba(0, 255, 255, 0.1); /* Subtle hover background */
+            color: #0ff; /* Cyan text glow */
+            text-shadow: 0 0 5px #0ff;
+        }
+
+        /* Styles for content sections (Academics, Admissions, About Us, Contact Us) */
+        .content-section {
+            background-color: rgba(15, 12, 41, 0.7); /* Dark background with opacity */
+            border-radius: 1.5rem; /* Rounded corners */
+            padding: 2.5rem;
+            margin-bottom: 2.5rem;
+            text-align: center;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); /* General shadow */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 2px solid transparent; /* Base for glow border */
+            position: relative;
+        }
+
+        .content-section:hover {
+            transform: translateY(-8px);
+            box-shadow:
+                0 0 20px #06f, /* Blue glow */
+                0 0 40px #f06, /* Pink glow */
+                0 0 80px #a600ff, /* Purple glow */
+                0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            border-color: #0ff; /* Example: Cyan border on hover */
+        }
+
+        .content-section h2 {
+            font-family: 'Monoton', cursive;
+            text-shadow:
+                0 0 5px #fff,
+                0 0 10px #fff,
+                0 0 20px #fff,
+                0 0 40px #0ff; /* Cyan neon glow */
+            color: #f0f0f0;
+            font-size: 2.5rem; /* Large font size for headings */
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+        }
+
+        .content-section p, .content-section ul {
+            font-size: 1.1rem;
+            line-height: 1.75;
+            color: #d0d0d0;
+            margin-bottom: 1rem;
+        }
+
+        .content-section ul {
+            list-style: none; /* Remove default bullet points */
+            padding-left: 0;
+            text-align: left; /* Align list items to left */
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .content-section ul li::before {
+            content: '• '; /* Custom bullet point */
+            color: #0ff; /* Cyan bullet point */
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+
+        .content-section a {
+            color: #0ff; /* Neon blue link color */
+            text-decoration: none;
+            transition: color 0.2s ease, text-shadow 0.2s ease;
+        }
+        .content-section a:hover {
+            color: #f06; /* Neon pink on hover */
+            text-shadow: 0 0 8px #f06;
+        }
+
+        /* Specific styles for contact form elements if needed */
+        .contact-form input[type="text"],
+        .contact-form input[type="email"],
+        .contact-form textarea {
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(0, 255, 255, 0.5); /* Neon border */
+            color: #e0e0e0;
+            border-radius: 0.5rem;
+            padding: 0.75rem 1rem;
+            width: 100%;
+            margin-bottom: 1rem;
+        }
+        .contact-form input[type="text"]:focus,
+        .contact-form input[type="email"]:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: #f06; /* Pink glow on focus */
+            box-shadow: 0 0 8px #f06;
+        }
+        .contact-form label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #0ff; /* Neon color for labels */
+        }
+        .contact-form button[type="submit"] {
+            background-image: linear-gradient(to right, #FF006E 0%, #FFBE0B 51%, #FF006E 100%);
+            margin-top: 1rem;
+            padding: 0.75rem 2.5rem;
+            text-align: center;
+            text-transform: uppercase;
+            transition: 0.5s;
+            background-size: 200% auto;
+            color: white;
+            box-shadow: 0 0 10px #eee;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            border: none;
+            outline: none;
+            font-weight: bold;
+        }
+        .contact-form button[type="submit"]:hover {
+            background-position: right center;
+            color: #fff;
+            text-decoration: none;
+            box-shadow: 0 0 20px #FF006E, 0 0 30px #FFBE0B;
+        }
+
+    </style>
+</head>
+<body class="flex flex-col items-center justify-between relative">
+    <!-- Decorative neon light elements -->
+    <div class="decorative-light-left hidden md:block"></div>
+    <div class="decorative-light-right hidden md:block"></div>
+
+    <div class="content-container w-full max-w-6xl mx-auto z-10">
+        <header class="w-full py-6 px-4 z-50 sticky top-0 bg-gray-900 bg-opacity-90 flex items-center justify-start">
+            <img src="images/LOGO2.png" alt="School Logo" class="h-24 sm:h-32 mr-4 flex-shrink-0">
+            <div class="flex flex-col flex-grow text-center">
+                <h1 class="text-3xl md:text-5xl font-bold uppercase tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 pb-1 leading-none w-full">
+                    SMT LABHUBEN KANJIBHAI BABARIYA SECONDARY AND HIGHER SECONDARY SCHOOL HAMAPUR
+                </h1>
+               
+            </div>
+            <!-- This div balances the logo's space to truly center the text block -->
+            <div class="h-24 sm:h-32 flex-shrink-0" style="width: calc(6rem + 1rem);"></div>
+        </header>
+        <!-- Navigation Bar -->
+        <nav class="bg-gradient-to-br from-gray-800 to-gray-900 p-4 rounded-xl shadow-lg w-full neon-glow-blue mx-auto my-4">
+            <ul class="flex justify-center space-x-4 whitespace-nowrap">
+                <li class="relative dropdown">
+                    <button class="dropdown-button">Dashboard</button>
+                    <div class="dropdown-menu"></div>
+                </li>
+                <li class="relative dropdown">
+                    <button class="dropdown-button">About us</button>
+                    <div class="dropdown-menu">
+                        <a href="overview.html">Overview</a>
+                        <a href="structure.html">Structure</a>
+                        <a href="achievement.html">Achievements</a>
+                    </div>
+                </li>
+                <li class="relative dropdown">
+                    <button class="dropdown-button">Timetable</button>
+                    <div class="dropdown-menu">
+                        <a href="timetable.html">Timetable</a>
+                    </div>
+                </li>
+                <li class="relative dropdown">
+                    <button class="dropdown-button">Exam</button>
+                    <div class="dropdown-menu">
+                        <a href="9th.html">9th old exam paper</a>
+                        <a href="10th.html">10th old exam paper</a>
+                        <a href="11th.html">11th old exam paper</a>
+                        <a href="12th.html">12th old exam paper</a>
+                    </div>
+                </li>
+                <li class="relative dropdown">
+                    <button class="dropdown-button">Admissions</button>
+                    <div class="dropdown-menu">
+                        <a href="aform1.html">9th Standard</a>
+                        <a href="bform2.html">10th Standard</a>
+                        <a href="cform3.html">11th Standard arts</a>
+                        <a href="dform4.html">11th Standard Commerce</a>
+                       <a href="eform5.html">12th Standard arts</a>
+                        <a href="fform6.html">12th Standard Commerce</a>
+                    </div>
+                </li>
+                <li class="relative dropdown">
+                    <button class="dropdown-button">Events</button>
+                    <div class="dropdown-menu">
+                        <a href="pastevent.html">Past Events</a>
+                        <a href="upecoming.html">Upcoming Events</a>
+                    </div>
+                </li>
+                <li class="relative dropdown">
+                    <button class="dropdown-button">Contact Us</button>
+                    <div class="dropdown-menu">
+                        <a href="#contact">Contact Details</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+
+
+        <center class="my-8 w-full mx-auto">
+            <img src="images/school.jpg" class="school rounded-xl shadow-xl w-full h-auto max-h-[450px] object-cover neon-glow-pink" alt="School Building">
+        </center>
+
+        <section id="academics" class="content-section w-full mx-auto my-8" tabindex="0">
+            <h2>Academics</h2>
+            <p>We offer a comprehensive curriculum that includes:</p>
+            <ul>
+                <li>Science (Physics, Chemistry, Biology)</li>
+                <li>Mathematics</li>
+                <li>Commerce and Accountancy</li>
+                <li>Languages: English, Hindi, Gujarati</li>
+                <li>Computer Science & Information Technology</li>
+                <li>Arts and Humanities</li>
+            </ul>
+            <p>Our teachers are committed to inspiring excellence and critical thinking in all students.</p>
+            <p>Our teachers also provide old exam question papers and sample exam papers to the students to prepare and practice for exams to pass out easily.</p>
+            <p>Also, our teachers conduct monthly tests to identify which students need more hard work for each subject.</p>
+            <p>We also provide periodical tests to our students to make them strong and prepare for exams.</p>
+        </section>
+
+        <section id="admissions" class="content-section w-full mx-auto my-8" tabindex="0">
+            <h2>Admissions</h2>
+            <p>Admissions are open for the academic year 2024-2025. We welcome students who are eager to learn and grow in a supportive and stimulating environment.</p>
+            <p>Please contact the school office for admission forms, eligibility criteria, and important dates.</p>
+            <center class="mt-6">
+                <a href="https://forms.gle/Ffe1dPnLKpijuJz19" class="btn-neon inline-block">Click to open admission form</a>
+            </center>
+        </section>
+
+        <section id="about" class="content-section w-full mx-auto my-8" tabindex="0">
+            <h2>About Us</h2>
+            <p>Established with a vision to nurture young minds, SMT Labhuben Kanjibhai Babariya Secondary and Higher Secondary School Hamapur is dedicated to providing quality education and holistic development for students from secondary to higher secondary levels.</p>
+            <p>Our mission is to foster an environment that inspires learning, creativity, discipline, and social responsibility, preparing students for a promising future.</p>
+        </section>
+
+        <form action="https://formsubmit.co/vivekborad530@gmail.com" method="POST" class="w-full">
+            <section id="contact" class="content-section w-full mx-auto my-8 contact-form" tabindex="0" aria-label="Contact section">
+                <h2>Contact Us</h2>
+                <div class="contact-details text-left mb-6" style="line-height: 1.8; font-size: 1.1rem;">
+                    <p><strong>School Name:</strong> SMT Labhuben Kanjibhai Babariya Secondary and Higher Secondary School</p>
+                    <p><strong>Address:</strong> Hamapur, Gujarat, India</p>
+                    <p><strong>Phone:</strong> <a href="tel:+919876543210">+91 98765 43210</a></p>
+                    <p><strong>Email:</strong> <a href="mailto:info@lkbschool.edu.in">info@lkbschool.edu.in</a></p>
+                    <p><strong>Working Hours:</strong> Monday to Saturday, 8:00 AM – 2:00 PM</p>
+                </div>
+
+                <h3 class="text-xl font-bold text-gray-200 mb-4">Send us a message:</h3>
+                <div class="text-left">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required placeholder="Your Name">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required placeholder="your.email@example.com">
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" rows="5" required placeholder="Your message..."></textarea>
+                    <button type="submit">Send Message</button>
+                </div>
+                <div id="formMessage" class="mt-4 text-center font-bold"></div>
+
+                <div class="map" style="margin-top: 20px;">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3707.1489347062386!2d71.30783259999999!3d21.4898011!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be2444964b9392b%3A0x289f6ac2cbd87f3c!2sHamapur%2C%20Gujarat%20365440!5e0!3m2!1sen!2sin!4v1718378344947!5m2!1sen!2sin"
+                        width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" title="School Location Map"></iframe>
+                </div>
+            </section>
+        </form>
+    </div>
+
+    <footer class="w-full text-center py-6 px-4 mt-8 z-10">
+        <p class="text-lg md:text-xl font-bold uppercase tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-red-400 via-yellow-500 to-green-500 pb-1">
+            Smt. Labhuben Kanjibhai Babariya Secondary and Higher Secondary School Hamapur
+        </p>
+        <p class="text-sm md:text-md text-gray-400">&copy; 2024 All Rights Reserved. Designed with ❤️</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                let target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: "smooth" });
+                    // Optional: target.focus({ preventScroll: true }); // Removed for now to avoid accessibility issues with dynamic focus
+                }
+            });
+        });
+
+        // Contact form client-side validation (simplified without specific error spans)
+        const contactForm = document.querySelector('.contact-form form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(event) {
+                // This is a placeholder for client-side validation.
+                // For a real application, you'd add more robust validation here.
+                const name = this.querySelector('#name').value.trim();
+                const email = this.querySelector('#email').value.trim();
+                const message = this.querySelector('#message').value.trim();
+                const formMessageDiv = document.getElementById('formMessage');
+
+                if (!name || !email || !message) {
+                    event.preventDefault(); // Prevent form submission
+                    formMessageDiv.style.color = 'red';
+                    formMessageDiv.textContent = 'Please fill in all fields.';
+                } else if (!validateEmail(email)) {
+                    event.preventDefault(); // Prevent form submission
+                    formMessageDiv.style.color = 'red';
+                    formMessageDiv.textContent = 'Please enter a valid email address.';
+                } else {
+                    formMessageDiv.style.color = 'green';
+                    formMessageDiv.textContent = 'Submitting your message...';
+                    // The form will now actually submit to formsubmit.co
+                }
+            });
+        }
+
+        function validateEmail(email) {
+            const re = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+            return re.test(email.toLowerCase());
+        }
+    </script>
+</body>
+</html>

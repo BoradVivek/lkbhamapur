@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smt Labhuben Kanjibhai Babariya Secondary and Higher Secondary School Hamapur - Past Events</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter for body, Monoton for display -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Monoton&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            /* Gradient background for a vibrant look - Copied from Upcoming Event */
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            background-size: 400% 400%;
+            animation: gradientAnimation 15s ease infinite;
+            color: #e0e0e0; /* Light text color for contrast */
+            overflow-x: hidden; /* Prevent horizontal scrolling */
+            padding: 0; /* Remove padding for consistency with main page */
+        }
+
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Custom CSS for Neon Effect - Copied from Upcoming Event */
+        .neon-text {
+            font-family: 'Monoton', cursive;
+            text-shadow:
+                0 0 5px #fff,
+                0 0 10px #fff,
+                0 0 20px #fff,
+                0 0 40px #0ff, /* Cyan neon glow */
+                0 0 80px #0ff,
+                0 0 90px #0ff,
+                0 0 100px #0ff,
+                0 0 150px #0ff;
+            color: #f0f0f0; /* Base color for neon text */
+        }
+
+        .neon-glow-pink {
+            box-shadow:
+                0 0 5px #fff,
+                0 0 10px #fff,
+                0 0 15px #f06, /* Pink neon glow */
+                0 0 20px #f06,
+                0 0 25px #f06,
+                0 0 30px #f06;
+        }
+
+        .neon-glow-blue {
+            box-shadow:
+                0 0 5px #fff,
+                0 0 10px #fff,
+                0 0 15px #06f, /* Blue neon glow */
+                0 0 20px #06f,
+                0 0 25px #06f,
+                0 0 30px #06f;
+        }
+
+        .decorative-light-left,
+        .decorative-light-right {
+            position: absolute;
+            width: 100px;
+            height: 300px;
+            background: linear-gradient(to bottom, rgba(255, 0, 255, 0.5), rgba(0, 255, 255, 0)); /* Purple to Cyan */
+            filter: blur(80px);
+            opacity: 0.6;
+            animation: pulse-light 5s infinite alternate;
+            z-index: 0;
+            pointer-events: none; /* Ensure they don't block interactions */
+        }
+
+        .decorative-light-left {
+            top: 10%;
+            left: -50px;
+            transform: rotate(-30deg);
+        }
+
+        .decorative-light-right {
+            top: 30%;
+            right: -50px;
+            transform: rotate(30deg);
+            background: linear-gradient(to bottom, rgba(0, 255, 255, 0.5), rgba(255, 0, 255, 0)); /* Cyan to Purple */
+        }
+
+        @keyframes pulse-light {
+            0% { transform: scale(1) rotate(0deg); opacity: 0.6; }
+            50% { transform: scale(1.1) rotate(5deg); opacity: 0.8; }
+            100% { transform: scale(1) rotate(0deg); opacity: 0.6; }
+        }
+
+        /* SVG icon glow */
+        .svg-glow {
+            filter: drop-shadow(0 0 5px #f0f) drop-shadow(0 0 15px #0ff);
+        }
+
+        .btn-neon {
+            background-image: linear-gradient(to right, #FF006E 0%, #FFBE0B 51%, #FF006E 100%);
+            margin: 10px;
+            padding: 15px 45px;
+            text-align: center;
+            text-transform: uppercase;
+            transition: 0.5s;
+            background-size: 200% auto;
+            color: white;
+            box-shadow: 0 0 20px #eee;
+            border-radius: 10px;
+            display: block; /* Make it block to take full width of flex item */
+            cursor: pointer;
+            border: none;
+            outline: none;
+        }
+        .btn-neon:hover {
+            background-position: right center; /* change the direction of the change here */
+            color: #fff;
+            text-decoration: none;
+            box-shadow: 0 0 30px #FF006E, 0 0 40px #FFBE0B;
+        }
+
+        /* Styles for the re-introduced photo gallery cards */
+        .gallery-item {
+            background-color: rgba(15, 12, 41, 0.7); /* Dark background with opacity */
+            border-radius: 1.5rem; /* Rounded corners */
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            transform: translateY(0) scale(1);
+            transition: transform 0.4s ease-out, box-shadow 0.4s ease-out;
+            cursor: pointer; /* Indicate interactivity */
+        }
+
+        .gallery-item .event-thumbnail {
+            height: 120px; /* Size for icon-like appearance */
+            width: 120px;
+            object-fit: cover;
+            border-radius: 50%; /* Make it circular */
+            margin: 0 auto 1rem auto; /* Center and add bottom margin */
+            border: 4px solid currentColor; /* Dynamic border color for the glow */
+            box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Subtle shadow for depth */
+            transition: transform 0.3s ease-in-out;
+        }
+        .gallery-item:hover .event-thumbnail {
+            transform: scale(1.1); /* Slightly enlarge image on hover */
+        }
+
+        /* Gallery item hover effect for the overlay */
+        .gallery-item .gallery-overlay {
+            opacity: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+            transition: opacity 0.3s ease-in-out;
+        }
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+        
+        /* Enhanced Gallery Item Hover Glow */
+        .gallery-item:hover {
+            box-shadow:
+                0 0 20px #06f, /* Blue glow */
+                0 0 40px #f06, /* Pink glow */
+                0 0 80px #a600ff, /* Purple glow */
+                0 25px 50px -12px rgba(0, 0, 0, 0.25),
+                0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            transform: scale(1.05); /* Slightly increased scale on hover for more impact */
+        }
+
+        /* Modal specific styles */
+        .modal-backdrop {
+            background-color: rgba(0, 0, 0, 0.85);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.4s ease-out, visibility 0.4s ease-out;
+        }
+        
+        .modal-backdrop.open {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            position: relative;
+            background: linear-gradient(135deg, #ffffff, #f0f4f8);
+            border-radius: 1.5rem;
+            padding: 2rem;
+            max-width: 95%;
+            max-height: 95%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            transform: translateY(20px) scale(0.9);
+            opacity: 0;
+            transition: transform 0.4s ease-out, opacity 0.4s ease-out;
+            overflow-y: auto;
+        }
+
+        .modal-backdrop.open .modal-content {
+            transform: translateY(0) scale(1);
+            opacity: 1;
+            /* Re-added neon glow for modal content, using hardcoded colors */
+            box-shadow:
+                0 0 20px #06f, /* Blue */
+                0 0 40px #f06, /* Pink */
+                0 0 80px #a600ff, /* Purple */
+                0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+
+        .modal-image {
+            max-width: 100%;
+            max-height: 65vh;
+            object-fit: contain;
+            border-radius: 1rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            /* Added fade-in animation for image transitions */
+            transition: opacity 0.3s ease-in-out;
+        }
+        
+        /* Keyframes for the fade-in animation */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .nav-button {
+            background-color: #4f46e5; /* primary-600 */
+            color: white;
+            padding: 0.75rem 1.75rem;
+            border-radius: 0.75rem;
+            font-weight: 600;
+            transition: background-color 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* md shadow */
+        }
+        .nav-button:hover {
+            background-color: #4338ca; /* primary-700 */
+            transform: translateY(-2px);
+            /* Re-added neon glow for nav buttons, using hardcoded colors */
+            box-shadow:
+                0 0 10px #06f, /* Blue */
+                0 0 20px #f06; /* Pink */
+        }
+        .nav-button:active {
+            transform: translateY(0);
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06); /* sm shadow */
+        }
+
+        .video-card {
+            background-color: rgba(15, 12, 41, 0.7); /* Dark background with opacity */
+            border-radius: 1.5rem;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .video-card:hover {
+            transform: translateY(-5px);
+            box-shadow:
+                0 0 20px #0ff, /* Cyan glow */
+                0 0 40px #f0f, /* Magenta glow */
+                0 0 80px #0ff;
+        }
+        .video-card iframe {
+            border-radius: 0.75rem;
+            width: 100%;
+            height: 200px; /* Fixed height for video embeds */
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col items-center justify-between relative">
+    <!-- Decorative neon light elements -->
+    <div class="decorative-light-left hidden md:block"></div>
+    <div class="decorative-light-right hidden md:block"></div>
+
+    <div class="content-container w-full mx-auto z-10">
+        <header class="w-full py-6 px-4 z-50 sticky top-0 bg-gray-900 bg-opacity-90 flex items-center justify-start">
+            <img src="images/LOGO2.png" alt="School Logo" class="h-24 sm:h-32 mr-4 flex-shrink-0">
+            <div class="flex flex-col flex-grow text-center">
+                <h1 class="text-3xl md:text-5xl font-bold uppercase tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 pb-1 leading-none w-full">
+                    SMT LABHUBEN KANJIBHAI BABARIYA SECONDARY AND HIGHER SECONDARY SCHOOL HAMAPUR
+                </h1>
+               
+            </div>
+            <!-- This div balances the logo's space to truly center the text block -->
+            <div class="h-24 sm:h-32 flex-shrink-0" style="width: calc(6rem + 1rem);"></div>
+        </header>
+
+    <!-- Main Content Section -->
+    <main class="flex-grow flex flex-col items-center justify-center w-full max-w-6xl p-4 md:p-8 z-10 mx-auto">
+        <div class="text-center mb-10">
+            <h2 class="text-6xl md:text-8xl font-extrabold neon-text animate-pulse mb-4 leading-tight">
+                PAST EVENTS
+            </h2>
+            <p class="text-4xl md:text-6xl font-semibold text-white tracking-wide">
+                Relive the Moments of Our Legacy
+            </p>
+            <p class="text-xl md:text-2xl text-gray-400 mt-4 max-w-3xl mx-auto">
+                Journey through our cherished history of annual functions, filled with unforgettable performances and a vibrant community spirit.
+            </p>
+        </div>
+
+        <!-- Event Highlights Section (Adapted for Past Events) -->
+        <div class="w-full text-center mt-12 mb-8">
+            <h3 class="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 via-lime-300 to-green-400">
+                Key Highlights
+            </h3>
+        </div>
+
+        <!-- Event Details Cards (now representing past event statistics/highlights) -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 w-full mb-16">
+            <!-- Years of Legacy Card -->
+            <div class="bg-gray-900 bg-opacity-70 rounded-xl p-6 text-center neon-glow-pink transition-all duration-300 hover:scale-105 transform">
+                <svg class="h-16 w-16 mx-auto mb-4 svg-glow" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M19 4h-3V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11zM7 11h2v2H7zm4 0h2v2h-2zm4 0h2v2h-2zm-8 4h2v2H7zm4 0h2v2h-2zm4 0h2v2h-2z"/>
+                </svg>
+                <h3 class="text-2xl font-bold text-teal-300 mb-2">Years of Legacy</h3>
+                <p class="text-3xl text-white">20+ Years Strong</p>
+            </div>
+
+            <!-- Total Events Card -->
+            <div class="bg-gray-900 bg-opacity-70 rounded-xl p-6 text-center neon-glow-blue transition-all duration-300 hover:scale-105 transform">
+                <svg class="h-16 w-16 mx-auto mb-4 svg-glow" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm.87 13.13L11.25 12V7h1.5v4.25l2.63 2.63-1.01 1.01z"/>
+                </svg>
+                <h3 class="text-2xl font-bold text-purple-300 mb-2">Total Events</h3>
+                <p class="text-3xl text-white">100+ Functions</p>
+            </div>
+
+            <!-- Treasured Memories Card -->
+            <div class="bg-gray-900 bg-opacity-70 rounded-xl p-6 text-center neon-glow-pink transition-all duration-300 hover:scale-105 transform">
+                <svg class="h-16 w-16 mx-auto mb-4 svg-glow" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                </svg>
+                <h3 class="text-2xl font-bold text-yellow-300 mb-2">Treasured Memories</h3>
+                <p class="text-3xl text-white">Thousands of Smiles</p>
+            </div>
+        </div>
+
+        <!-- Photo Albums Section -->
+        <section id="photo-albums" class="w-full text-center mb-16">
+            <h3 class="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-blue-300 to-indigo-400 mb-8">
+                Photo Albums
+            </h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                <!-- Photo Card 1: Teachers Day -->
+                <div class="bg-gray-900 bg-opacity-70 rounded-2xl shadow-xl transform transition-all duration-500 hover:scale-[1.02] cursor-pointer group relative gallery-item neon-glow-pink"
+                     data-event-images='[
+                         {"src": "images/teacher.jpg", "title": "Teachers Day Celebration", "desc": "Honoring our dedicated teachers."},
+                         {"src": "images/teacher.jpg", "title": "Teachers Day Celebration", "desc": "Honoring our dedicated teachers."}
+                     ]'>
+                    <div class="p-6 text-center">
+                        <img src="images/teacher.jpg" alt="Teachers Day Thumbnail" class="event-thumbnail svg-glow">
+                        <h3 class="text-xl font-bold text-teal-300 mb-2">Teachers Day</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">A special day dedicated to our beloved educators.</p>
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6 gallery-overlay">
+                        <span class="text-white text-lg font-semibold view-gallery-text"></span>
+                    </div>
+                </div>
+
+                <!-- Photo Card 2: Cultural Dance Performance -->
+                <div class="bg-gray-900 bg-opacity-70 rounded-2xl shadow-xl transform transition-all duration-500 hover:scale-[1.02] cursor-pointer group relative gallery-item neon-glow-blue"
+                     data-event-images='[
+                         {"src": "images/bharatnatyam.jpg", "title": "Cultural Dance: Traditional Folk", "desc": "Students performing a beautiful traditional folk dance, showcasing regional heritage and grace."},
+                         {"src": "images/bharatnatyam2.jpg", "title": "Cultural Dance: Modern Fusion", "desc": "An energetic modern fusion dance, blending contemporary styles with classical elements."},
+                         {"src": "images/bharatnatyam3.jpg", "title": "Cultural Dance: Group Finale", "desc": "The grand finale of the cultural dance segment, with all performers on stage in a synchronized display."}
+                     ]'>
+                    <div class="p-6 text-center">
+                        <img src="images/bharatnatyam.jpg" alt="Cultural Dance Performance Thumbnail" class="event-thumbnail svg-glow">
+                        <h3 class="text-xl font-bold text-purple-300 mb-2">Vibrant Cultural Dance</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">Mesmerizing the audience with their grace and rhythm.</p>
+                    </div>
+                       <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6 gallery-overlay">
+                        <span class="text-white text-lg font-semibold view-gallery-text"></span>
+                    </div>
+                </div>
+
+                <!-- Photo Card 3: Yoga Day -->
+                <div class="bg-gray-900 bg-opacity-70 rounded-2xl shadow-xl transform transition-all duration-500 hover:scale-[1.02] cursor-pointer group relative gallery-item neon-glow-pink"
+                     data-event-images='[
+                         {"src": "images/yoga .jpg", "title": "Yoga Day", "desc": "Yoga is not about touching your toes; it’s about what you learn on the way down"},
+                         {"src": "images/yoga 2.jpg", "title": "Yoga Day", "desc": "Yoga helps one achieve peace from within. Find yours on this International Yoga Day."},
+                         {"src": "images/yoga 3.jpg", "title": "Yoga Day", "desc": "The journey of a thousand miles begins with a single step, and that step is yoga."}
+                     ]'>
+                    <div class="p-6 text-center">
+                        <img src="images/yoga .jpg" alt="Yoga Day Thumbnail" class="event-thumbnail svg-glow">
+                        <h3 class="text-xl font-bold text-yellow-300 mb-2">Yoga Day</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">Yoga is a light, which once lit will never dim. The better your practice, the brighter your flame.</p>
+                    </div>
+                       <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6 gallery-overlay">
+                        <span class="text-white text-lg font-semibold view-gallery-text"></span>
+                    </div>
+                </div>
+
+                <!-- Photo Card 4: Environment Day -->
+                <div class="bg-gray-900 bg-opacity-70 rounded-2xl shadow-xl transform transition-all duration-500 hover:scale-[1.02] cursor-pointer group relative gallery-item neon-glow-blue"
+                     data-event-images='[
+                         {"src": "images/enviour.jpg", "title": "Environment Day: Tree Planting", "desc": "Students participating in tree planting for Environment Day."},
+                         {"src": "images/enviour2.jpg", "title": "Environment Day: Awareness Campaign", "desc": "Raising awareness about environmental protection."},
+                         {"src": "images/enviour3.jpg", "title": "Environment Day: Clean-up Drive", "desc": "Students on a campus clean-up drive."}
+                     ]'>
+                    <div class="p-6 text-center">
+                        <img src="images/enviour2.jpg" alt="Environment Day Thumbnail" class="event-thumbnail svg-glow">
+                        <h3 class="text-xl font-bold text-red-300 mb-2">Environment Day</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">Promoting eco-consciousness and sustainability.</p>
+                    </div>
+                       <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6 gallery-overlay">
+                        <span class="text-white text-lg font-semibold view-gallery-text"></span>
+                    </div>
+                </div>
+
+                <!-- Photo Card 5: Navratri -->
+                <div class="bg-gray-900 bg-opacity-70 rounded-2xl shadow-xl transform transition-all duration-500 hover:scale-[1.02] cursor-pointer group relative gallery-item neon-glow-pink"
+                     data-event-images='[
+                         {"src": "images/Navaratri .jpg", "title": "Navratri Celebration", "desc": "Colorful dances and traditional festivities during Navratri."},
+                         {"src": "images/Navaratri .jpg", "title": "Navratri Celebration", "desc": "Colorful dances and traditional festivities during Navratri."}
+                     ]'>
+                    <div class="p-6 text-center">
+                        <img src="images/Navaratri .jpg" alt="Navratri Celebration Thumbnail" class="event-thumbnail svg-glow">
+                        <h3 class="text-xl font-bold text-pink-300 mb-2">Navratri Celebrations</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">Joyful Garba and cultural performances.</p>
+                    </div>
+                       <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6 gallery-overlay">
+                        <span class="text-white text-lg font-semibold view-gallery-text"></span>
+                    </div>
+                </div>
+
+                <!-- Photo Card 6: 26th January -->
+                <div class="bg-gray-900 bg-opacity-70 rounded-2xl shadow-xl transform transition-all duration-500 hover:scale-[1.02] cursor-pointer group relative gallery-item neon-glow-blue"
+                     data-event-images='[
+                         {"src": "images/26th January.jpg", "title": "Republic Day Parade", "desc": "Students marching with pride on Republic Day."},
+                         {"src": "images/26th January2.jpg", "title": "Flag Hoisting Ceremony", "desc": "The flag hoisting ceremony on 26th January."},
+                         {"src": "images/26th January3.jpg", "title": "Cultural Program", "desc": "Patriotic performances by students."}
+                     ]'>
+                    <div class="p-6 text-center">
+                        <img src="images/26th January.jpg" alt="Republic Day Thumbnail" class="event-thumbnail svg-glow">
+                        <h3 class="text-xl font-bold text-orange-300 mb-2">Republic Day</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">Celebrating the spirit of our nation.</p>
+                    </div>
+                       <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6 gallery-overlay">
+                        <span class="text-white text-lg font-semibold view-gallery-text"></span>
+                    </div>
+                </div>
+
+                <!-- Photo Card 7: Science Fair -->
+                <div class="bg-gray-900 bg-opacity-70 rounded-2xl shadow-xl transform transition-all duration-500 hover:scale-[1.02] cursor-pointer group relative gallery-item neon-glow-pink"
+                     data-event-images='[
+                         {"src": "images/Science Fair.jpg", "title": "Science Fair Innovations", "desc": "Students showcasing their scientific projects."},
+                         {"src": "images/Science Fair 2.jpg", "title": "Interactive Exhibits", "desc": "Engaging science exhibits created by our young scientists."}
+                     ]'>
+                    <div class="p-6 text-center">
+                        <img src="images/Science Fair.jpg" alt="Science Fair Thumbnail" class="event-thumbnail svg-glow">
+                        <h3 class="text-xl font-bold text-cyan-300 mb-2">Science Fair</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">Innovations and discoveries by young minds.</p>
+                    </div>
+                       <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6 gallery-overlay">
+                        <span class="text-white text-lg font-semibold view-gallery-text"></span>
+                    </div>
+                </div>
+
+                <!-- Photo Card 8: 15th August -->
+                <div class="bg-gray-900 bg-opacity-70 rounded-2xl shadow-xl transform transition-all duration-500 hover:scale-[1.02] cursor-pointer group relative gallery-item neon-glow-blue"
+                     data-event-images='[
+                         {"src": "images/15th August .jpg", "title": "Independence Day Celebration", "desc": "Flag hoisting and patriotic events on 15th August."},
+                         {"src": "images/15th August 2.jpg", "title": "Student Performances", "desc": "Students showcasing their love for the nation through various acts."},
+                         {"src": "images/15th August 3.jpg", "title": "Community Gathering", "desc": "The school community celebrating Independence Day."}
+                     ]'>
+                    <div class="p-6 text-center">
+                        <img src="images/15th August .jpg" alt="Independence Day Thumbnail" class="event-thumbnail svg-glow">
+                        <h3 class="text-xl font-bold text-green-300 mb-2">Independence Day</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">Celebrating the freedom and spirit of India.</p>
+                    </div>
+                       <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6 gallery-overlay">
+                        <span class="text-white text-lg font-semibold view-gallery-text"></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Video Highlights Section -->
+        <section id="video-highlights" class="w-full text-center mb-16">
+            <h3 class="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-red-300 via-purple-300 to-pink-400 mb-8">
+                Video Highlights
+            </h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Sample Video Card 1 -->
+                <div class="video-card neon-glow-blue">
+                    <h4 class="text-xl font-semibold text-gray-200 mb-4">Special visit by Cabinet Minister </h4>
+                    <div class="aspect-w-16 aspect-h-9 mb-4">
+                        <iframe
+                            src="images/visit video.mp4"
+                            title="YouTube video player"
+                            frameborder="0"
+                            allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <p class="text-gray-400 text-sm">surprise and special visit by Cabinet Minister(Ex Principal of School) </p>
+                </div>
+
+                <!-- Sample Video Card 2 -->
+                <div class="video-card neon-glow-pink">
+                    <h4 class="text-xl font-semibold text-gray-200 mb-4">Student Dance Performance - 2022</h4>
+                    <div class="aspect-w-16 aspect-h-9 mb-4">
+                        <iframe
+                            src="images/26th January video 2.mp4"
+                            title="YouTube video player"
+                            frameborder="0"
+                            allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <p class="text-gray-400 text-sm">A mesmerizing dance by our talented students.</p>
+                </div>
+                <!-- Add more video cards as needed -->
+            </div>
+        </section>
+
+        <!-- Call to Action Buttons -->
+        <div class="mt-8 w-full flex flex-col md:flex-row justify-center items-center">
+            <button class="btn-neon text-2xl font-bold" onclick="scrollToSection('photo-albums')">
+                Explore All Photo Albums
+            </button>
+            <button class="btn-neon text-2xl font-bold" onclick="scrollToSection('video-highlights')">
+                View All Event Videos
+            </button>
+        </div>
+
+        <!-- Additional Graphics - Confetti and Starbursts -->
+        <div class="absolute inset-0 overflow-hidden pointer-events-none">
+            <div class="absolute top-1/4 left-1/4 w-32 h-32 bg-purple-500 rounded-full mix-blend-screen opacity-30 animate-blob"></div>
+            <div class="absolute top-1/2 right-1/4 w-48 h-48 bg-pink-500 rounded-full mix-blend-screen opacity-30 animate-blob animation-delay-2000"></div>
+            <div class="absolute bottom-1/4 left-1/3 w-40 h-40 bg-teal-500 rounded-full mix-blend-screen opacity: 30; animation-delay: 4s;"></div>
+        </div>
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="w-full text-center py-6 px-4 mt-8 z-10">
+        <p class="text-lg md:text-xl font-bold uppercase tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-red-400 via-yellow-500 to-green-500 pb-1">
+            Smt. Labhuben Kanjibhai Babariya Secondary and Higher Secondary School Hamapur
+        </p>
+        <p class="text-sm md:text-md text-gray-400">&copy; 2025 All Rights Reserved. Designed with ❤️</p>
+    </footer>
+
+    <!-- Lightbox Modal Structure -->
+    <div id="lightbox-modal" class="modal-backdrop hidden">
+        <div class="modal-content">
+            <!-- Close button with custom styling -->
+            <button id="close-modal" class="absolute top-4 right-4 text-gray-400 hover:text-gray-700 text-4xl font-light leading-none focus:outline-none transition-colors duration-200" title="Close (Esc)">&times;</button>
+            <img id="lightbox-image" class="modal-image" src="" alt="Lightbox Image">
+            <h3 id="lightbox-title" class="text-3xl font-extrabold text-primary-800 mb-2 text-center leading-tight"></h3>
+            <p id="lightbox-description" class="text-gray-700 text-lg text-center max-w-2xl mb-6 leading-snug"></p>
+            <div class="flex justify-between w-full max-w-md px-4">
+                <button id="prev-button" class="nav-button">← Previous</button>
+                <button id="next-button" class="nav-button">Next →</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Global variables for lightbox state
+        let currentEventImages = [];
+        let currentImageIndex = 0;
+
+        // Function to update the lightbox content based on an image object
+        function updateLightboxContent(image) {
+            // Add a temporary class to trigger the fade-out
+            lightboxImage.style.opacity = '0'; // Immediately hide
+            
+            // After a very short delay, update the source and trigger fade-in
+            setTimeout(() => {
+                lightboxImage.src = image.src;
+                lightboxImage.alt = image.title; // Alt text for accessibility
+                lightboxTitle.textContent = image.title;
+                lightboxDescription.textContent = image.desc;
+                lightboxImage.style.opacity = '1'; // Fade in the new image
+            }, 50); // Short delay to allow CSS transition to work
+        }
+
+        // Function to open the lightbox with images for a specific event
+        function openLightbox(eventImagesArray) {
+            currentEventImages = eventImagesArray;
+            currentImageIndex = 0; // Always start with the first image of the event's gallery
+            updateLightboxContent(currentEventImages[currentImageIndex]);
+
+            lightboxModal.classList.add('open');
+            lightboxModal.classList.remove('hidden');
+        }
+
+        // Function to close the lightbox
+        function closeLightbox() {
+            lightboxModal.classList.remove('open');
+            // Use a timeout to ensure the transition completes before hiding
+            setTimeout(() => {
+                lightboxModal.classList.add('hidden');
+            }, 400); // Match CSS transition duration for smooth closing
+        }
+
+        // Get DOM elements after functions are defined
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        const lightboxModal = document.getElementById('lightbox-modal');
+        const lightboxImage = document.getElementById('lightbox-image');
+        const lightboxTitle = document.getElementById('lightbox-title');
+        const lightboxDescription = document.getElementById('lightbox-description');
+        const closeButton = document.getElementById('close-modal');
+        const prevButton = document.getElementById('prev-button');
+        const nextButton = document.getElementById('next-button');
+
+        // Event listeners for gallery items to open the lightbox
+        galleryItems.forEach((item) => {
+            // Set initial thumbnail src and alt based on the first image in data-event-images
+            try {
+                const eventImages = JSON.parse(item.dataset.eventImages);
+                const thumbnailImg = item.querySelector('.event-thumbnail'); /* Updated selector */
+                const viewGallerySpan = item.querySelector('.view-gallery-text');
+
+                if (eventImages.length > 0) {
+                    // Set thumbnail image source (now using your original local paths)
+                    thumbnailImg.src = eventImages[0].src;
+                    thumbnailImg.alt = eventImages[0].title; // Use the title of the first image as thumbnail alt
+
+                    // Update the "View Gallery" text with the correct count
+                    if (viewGallerySpan) {
+                        viewGallerySpan.textContent = `View Gallery (${eventImages.length} photos)`;
+                    }
+                } else {
+                    // Fallback if no images are defined for an event
+                    if (viewGallerySpan) {
+                        viewGallerySpan.textContent = 'View Photo';
+                    }
+                }
+            } catch (e) {
+                console.error("Error setting initial gallery item data or parsing JSON:", e);
+                // Fallback for cases where JSON parsing fails
+                const viewGallerySpan = item.querySelector('.view-gallery-text');
+                if (viewGallerySpan) {
+                    viewGallerySpan.textContent = 'View Photo';
+                }
+            }
+
+            // Add click listener to open lightbox for the specific event's images
+            item.addEventListener('click', () => {
+                try {
+                    const eventImages = JSON.parse(item.dataset.eventImages);
+                    if (eventImages.length > 0) {
+                        openLightbox(eventImages);
+                    }
+                } catch (e) {
+                    console.error("Error parsing event images JSON on click:", e);
+                }
+            });
+        });
+
+        // Event listener for the close button
+        closeButton.addEventListener('click', closeLightbox);
+
+        // Event listener for clicking outside the modal content (on the backdrop)
+        lightboxModal.addEventListener('click', (e) => {
+            if (e.target === lightboxModal) {
+                closeLightbox();
+            }
+        });
+
+        // Event listeners for previous and next navigation buttons within the lightbox
+        prevButton.addEventListener('click', () => {
+            if (currentEventImages.length > 0) {
+                currentImageIndex = (currentImageIndex - 1 + currentEventImages.length) % currentEventImages.length;
+                updateLightboxContent(currentEventImages[currentImageIndex]);
+            }
+        });
+
+        nextButton.addEventListener('click', () => {
+            if (currentEventImages.length > 0) {
+                currentImageIndex = (currentImageIndex + 1) % currentEventImages.length;
+                updateLightboxContent(currentEventImages[currentImageIndex]);
+            }
+        });
+
+        // Keyboard navigation (Escape key to close, arrow keys for next/prev)
+        document.addEventListener('keydown', (e) => {
+            if (lightboxModal.classList.contains('open')) {
+                if (e.key === 'Escape') {
+                    closeLightbox();
+                } else if (e.key === 'ArrowLeft') {
+                    prevButton.click();
+                } else if (e.key === 'ArrowRight') {
+                    nextButton.click();
+                }
+            }
+        });
+
+        // Custom animation delays for blobs
+        document.addEventListener('DOMContentLoaded', () => {
+            const blobElements = document.querySelectorAll('.animate-blob');
+            blobElements.forEach((el, index) => {
+                if (el.classList.contains('animation-delay-2000')) {
+                    el.style.animationDelay = '2s';
+                } else if (el.classList.contains('animation-delay-4000')) {
+                    el.style.animationDelay = '4s';
+                }
+            });
+        });
+
+        // Function for smooth scrolling to sections
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            if (section) {
+                section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+    </script>
+</body>
+</html>

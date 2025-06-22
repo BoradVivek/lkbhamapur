@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smt Labhuben Kanjibhai Babariya Secondary and Higher Secondary School Hamapur - Upcoming Events</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter for body, Monoton for display -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Monoton&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            /* Gradient background for a vibrant look */
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            background-size: 400% 400%;
+            animation: gradientAnimation 15s ease infinite;
+            color: #e0e0e0; /* Light text color for contrast */
+            overflow-x: hidden; /* Prevent horizontal scrolling */
+            padding: 0; /* Remove padding for consistency with main page */
+        }
+
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Custom CSS for Neon Effect */
+        .neon-text {
+            font-family: 'Monoton', cursive;
+            text-shadow:
+                0 0 5px #fff,
+                0 0 10px #fff,
+                0 0 20px #fff,
+                0 0 40px #0ff, /* Cyan neon glow */
+                0 0 80px #0ff,
+                0 0 90px #0ff,
+                0 0 100px #0ff,
+                0 0 150px #0ff;
+            color: #f0f0f0; /* Base color for neon text */
+        }
+
+        .low-neon-text { /* This class is now unused for the header text but kept for calendar month name */
+            font-family: 'Monoton', cursive;
+            text-shadow:
+                0 0 2px #fff,
+                0 0 4px #fff,
+                0 0 8px #0ff,
+                0 0 15px #0ff;
+            color: #f0f0f0;
+        }
+
+        .neon-glow-pink {
+            box-shadow:
+                0 0 5px #fff,
+                0 0 10px #fff,
+                0 0 15px #f06, /* Pink neon glow */
+                0 0 20px #f06,
+                0 0 25px #f06,
+                0 0 30px #f06;
+        }
+
+        .neon-glow-blue {
+            box-shadow:
+                0 0 5px #fff,
+                0 0 10px #fff,
+                0 0 15px #06f, /* Blue neon glow */
+                0 0 20px #06f,
+                0 0 25px #06f,
+                0 0 30px #06f;
+        }
+
+        .decorative-light-left,
+        .decorative-light-right {
+            position: absolute;
+            width: 100px;
+            height: 300px;
+            background: linear-gradient(to bottom, rgba(255, 0, 255, 0.5), rgba(0, 255, 255, 0)); /* Purple to Cyan */
+            filter: blur(80px);
+            opacity: 0.6;
+            animation: pulse-light 5s infinite alternate;
+            z-index: 0;
+            pointer-events: none; /* Ensure they don't block interactions */
+        }
+
+        .decorative-light-left {
+            top: 10%;
+            left: -50px;
+            transform: rotate(-30deg);
+        }
+
+        .decorative-light-right {
+            top: 30%;
+            right: -50px;
+            transform: rotate(30deg);
+            background: linear-gradient(to bottom, rgba(0, 255, 255, 0.5), rgba(255, 0, 255, 0)); /* Cyan to Purple */
+        }
+
+        @keyframes pulse-light {
+            0% { transform: scale(1) rotate(0deg); opacity: 0.6; }
+            50% { transform: scale(1.1) rotate(5deg); opacity: 0.8; }
+            100% { transform: scale(1) rotate(0deg); opacity: 0.6; }
+        }
+
+        .btn-neon {
+            background-image: linear-gradient(to right, #FF006E 0%, #FFBE0B 51%, #FF006E 100%);
+            margin: 10px;
+            padding: 15px 45px;
+            text-align: center;
+            text-transform: uppercase;
+            transition: 0.5s;
+            background-size: 200% auto;
+            color: white;
+            box-shadow: 0 0 20px #eee;
+            border-radius: 10px;
+            display: block; /* Make it block to take full width of flex item */
+            cursor: pointer;
+            border: none;
+            outline: none;
+        }
+        .btn-neon:hover {
+            background-position: right center; /* change the direction of the change here */
+            color: #fff;
+            text-decoration: none;
+            box-shadow: 0 0 30px #FF006E, 0 0 40px #FFBE0B;
+        }
+
+        /* Event card styling for Upcoming Events */
+        .event-card {
+            background-color: rgba(15, 12, 41, 0.7); /* Dark background with opacity */
+            border-radius: 1.5rem; /* Rounded corners */
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); /* General shadow */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 2px solid transparent; /* Base for glow border */
+            position: relative;
+        }
+
+        .event-card:hover {
+            transform: translateY(-8px);
+            box-shadow:
+                0 0 20px #06f, /* Blue glow */
+                0 0 40px #f06, /* Pink glow */
+                0 0 80px #a600ff, /* Purple glow */
+                0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            border-color: #0ff; /* Example: Cyan border on hover */
+        }
+
+        .event-card h3 {
+            font-family: 'Monoton', cursive;
+            text-shadow:
+                0 0 5px #fff,
+                0 0 10px #fff,
+                0 0 20px #fff,
+                0 0 40px #0ff; /* Cyan neon glow */
+            color: #f0f0f0;
+            font-size: 2rem; /* Large font size for headings */
+            margin-bottom: 1rem;
+        }
+
+        .event-card p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #d0d0d0;
+            margin-bottom: 1rem;
+        }
+
+        .event-card .event-date {
+            font-weight: bold;
+            color: #FFBE0B; /* Yellowish for dates */
+            font-size: 1.2rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .event-card .event-button {
+            background-image: linear-gradient(to right, #00C9FF 0%, #92FE9D 51%, #00C9FF 100%); /* Greenish-blue gradient */
+            margin-top: 1.5rem;
+            padding: 0.75rem 2rem;
+            text-align: center;
+            text-transform: uppercase;
+            transition: 0.5s;
+            background-size: 200% auto;
+            color: white;
+            box-shadow: 0 0 15px rgba(0, 200, 255, 0.5); /* Blue-green glow */
+            border-radius: 0.5rem;
+            cursor: pointer;
+            border: none;
+            outline: none;
+            font-weight: bold;
+        }
+        .event-card .event-button:hover {
+            background-position: right center;
+            color: #fff;
+            text-decoration: none;
+            box-shadow: 0 0 25px rgba(0, 200, 255, 0.8), 0 0 35px rgba(146, 254, 157, 0.8);
+        }
+
+        /* Calendar specific styles */
+        .calendar-container {
+            background-color: rgba(15, 12, 41, 0.8);
+            border-radius: 1.5rem;
+            padding: 2.5rem;
+            text-align: center;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 2px solid transparent;
+            margin-top: 2.5rem;
+            color: #e0e0e0;
+        }
+        .calendar-container:hover {
+            transform: translateY(-8px);
+            box-shadow:
+                0 0 20px #06f,
+                0 0 40px #f06,
+                0 0 80px #a600ff,
+                0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            border-color: #0ff;
+        }
+        .calendar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        .calendar-header button {
+            background-color: #4f46e5;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s ease, transform 0.1s ease;
+        }
+        .calendar-header button:hover {
+            background-color: #4338ca;
+            transform: translateY(-1px);
+        }
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 0.5rem;
+        }
+        .calendar-day-name, .calendar-date {
+            padding: 0.75rem 0.5rem;
+            border-radius: 0.5rem;
+            font-weight: 500;
+        }
+        .calendar-day-name {
+            background-color: rgba(50, 50, 70, 0.7);
+            color: #0ff; /* Cyan for day names */
+        }
+        .calendar-date {
+            background-color: rgba(30, 30, 50, 0.7);
+            border: 1px solid rgba(0, 255, 255, 0.3);
+            cursor: pointer;
+            transition: background-color 0.2s ease, border-color 0.2s ease;
+        }
+        .calendar-date:hover {
+            background-color: rgba(50, 50, 70, 0.8);
+            border-color: #f06;
+        }
+        .calendar-date.current-day {
+            background-color: #FFBE0B; /* Highlight current day */
+            color: #0f0c29;
+            font-weight: bold;
+            box-shadow: 0 0 10px #FFBE0B;
+        }
+        .calendar-date.has-event {
+            background-color: #FF006E; /* Pink for event days */
+            box-shadow: 0 0 10px #FF006E;
+            font-weight: bold;
+            border-color: #FF006E;
+        }
+        .calendar-date.empty {
+            background-color: transparent;
+            border: none;
+            cursor: default;
+        }
+
+        /* Modal styles for event details */
+        .details-modal-backdrop, .reminders-modal-backdrop {
+            background-color: rgba(0, 0, 0, 0.85);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.4s ease-out, visibility 0.4s ease-out;
+        }
+        .details-modal-backdrop.open, .reminders-modal-backdrop.open {
+            opacity: 1;
+            visibility: visible;
+        }
+        .details-modal-content, .reminders-modal-content {
+            position: relative;
+            background: linear-gradient(135deg, #1a153a, #2a255a); /* Darker gradient for modal */
+            border-radius: 1.5rem;
+            padding: 2rem;
+            max-width: 90%;
+            max-height: 90%;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 0 20px #06f, 0 0 40px #f06, 0 0 80px #a600ff; /* Neon glow */
+            transform: translateY(20px) scale(0.9);
+            opacity: 0;
+            transition: transform 0.4s ease-out, opacity 0.4s ease-out;
+            overflow-y: auto;
+            color: #e0e0e0;
+        }
+        .details-modal-backdrop.open .details-modal-content,
+        .reminders-modal-backdrop.open .reminders-modal-content {
+            transform: translateY(0) scale(1);
+            opacity: 1;
+        }
+        .details-modal-content h3, .reminders-modal-content h3 {
+            font-family: 'Monoton', cursive;
+            color: #0ff; /* Cyan glow for modal title */
+            text-shadow: 0 0 10px #0ff;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        .details-modal-content p, .reminders-modal-content p {
+            font-size: 1.1rem;
+            margin-bottom: 0.75rem;
+            text-align: left;
+        }
+        .details-modal-content .close-button, .reminders-modal-content .close-button {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            font-size: 2rem;
+            color: #f06; /* Pink close button */
+            cursor: pointer;
+            transition: transform 0.2s ease, color 0.2s ease;
+        }
+        .details-modal-content .close-button:hover, .reminders-modal-content .close-button:hover {
+            transform: scale(1.1);
+            color: #fff;
+        }
+
+        /* Reminder Button styling inside modal */
+        .reminder-option-btn {
+            background-image: linear-gradient(to right, #00C9FF 0%, #92FE9D 51%, #00C9FF 100%);
+            margin: 10px auto; /* Center buttons */
+            padding: 15px 30px;
+            text-align: center;
+            text-transform: uppercase;
+            transition: 0.5s;
+            background-size: 200% auto;
+            color: white;
+            box-shadow: 0 0 15px rgba(0, 200, 255, 0.5);
+            border-radius: 0.5rem;
+            cursor: pointer;
+            border: none;
+            outline: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            width: 80%; /* Make them slightly narrower than full width */
+            max-width: 300px; /* Max width for consistency */
+        }
+
+        .reminder-option-btn:hover {
+            background-position: right center;
+            color: #fff;
+            text-decoration: none;
+            box-shadow: 0 0 25px rgba(0, 200, 255, 0.8), 0 0 35px rgba(146, 254, 157, 0.8);
+        }
+
+    </style>
+</head>
+<body class="min-h-screen flex flex-col items-center justify-between relative">
+    <!-- Decorative neon light elements -->
+    <div class="decorative-light-left hidden md:block"></div>
+    <div class="decorative-light-right hidden md:block"></div>
+
+    <div class="content-container w-full mx-auto z-10">
+        <header class="w-full py-6 px-4 z-50 sticky top-0 bg-gray-900 bg-opacity-90 flex items-center justify-start">
+            <img src="images/LOGO2.png" alt="School Logo" class="h-24 sm:h-32 mr-4 flex-shrink-0">
+            <div class="flex flex-col flex-grow text-center">
+                <h1 class="text-3xl md:text-5xl font-bold uppercase tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 pb-1 leading-none w-full">
+                    SMT LABHUBEN KANJIBHAI BABARIYA SECONDARY AND HIGHER SECONDARY SCHOOL HAMAPUR
+                </h1>
+            </div>
+            <!-- This div balances the logo's space to truly center the text block -->
+            <div class="h-24 sm:h-32 flex-shrink-0" style="width: calc(6rem + 1rem);"></div>
+        </header>
+
+        <!-- Main Content Section for Upcoming Events -->
+        <main class="flex-grow flex flex-col items-center justify-center w-full max-w-6xl p-4 md:p-8 z-10 mx-auto">
+            <div class="text-center mb-10">
+                <h2 class="text-6xl md:text-8xl font-extrabold neon-text animate-pulse mb-4 leading-tight">
+                    UPCOMING EVENTS
+                </h2>
+                <p class="text-4xl md:text-6xl font-semibold text-white tracking-wide">
+                    Mark Your Calendars!
+                </p>
+                <p class="text-xl md:text-2xl text-gray-400 mt-4 max-w-3xl mx-auto">
+                    Get ready for a series of exciting events and celebrations at Smt. Labhuben Kanjibhai Babariya Secondary and Higher Secondary School Hamapur.
+                </p>
+            </div>
+
+            <section id="upcoming-events-list" class="w-full text-center mb-16">
+                <h3 class="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-blue-300 to-indigo-400 mb-8">
+                    Featured Events
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Upcoming Event Card 1: Annual Function 2025 -->
+                    <div class="event-card neon-glow-pink">
+                        <h3>Annual Function 2025: Zenith</h3>
+                        <p class="event-date">Date: 26th January 2025</p>
+                        <p class="event-date">Time: 9:00 AM onwards</p>
+                        <p>Our biggest annual celebration featuring cultural performances, academic achievements, and felicitation ceremonies.</p>
+                        <button class="event-button">Register Now</button>
+                    </div>
+
+                    <!-- Upcoming Event Card 2: Annual Sports Day -->
+                    <div class="event-card neon-glow-blue">
+                        <h3>Annual Sports Day</h3>
+                        <p class="event-date">Date: 15th February 2025</p>
+                        <p class="event-date">Time: 8:30 AM - 4:00 PM</p>
+                        <p>A day of athleticism, team spirit, and healthy competition across various sports disciplines.</p>
+                        <button class="event-button">View Details</button>
+                    </div>
+
+                    <!-- Upcoming Event Card 3: Science & Innovation Fair -->
+                    <div class="event-card neon-glow-pink">
+                        <h3>Science & Innovation Fair</h3>
+                        <p class="event-date">Date: 10th March 2025</p>
+                        <p class="event-date">Time: 10:00 AM - 3:00 PM</p>
+                        <p>Showcasing the scientific prowess and innovative projects of our talented students.</p>
+                        <button class="event-button">Submit Project</button>
+                    </div>
+
+                    <!-- Upcoming Event Card 4: Inter-House Debate Competition -->
+                    <div class="event-card neon-glow-blue">
+                        <h3>Inter-House Debate Competition</h3>
+                        <p class="event-date">Date: 5th April 2025</p>
+                        <p class="event-date">Time: 1:00 PM - 5:00 PM</p>
+                        <p>Witness sharp minds battle it out in a stimulating war of words.</p>
+                        <button class="event-button">Participate</button>
+                    </div>
+
+                    <!-- Upcoming Event Card 5: Cultural Fest: Harmony -->
+                    <div class="event-card neon-glow-pink">
+                        <h3>Cultural Fest: Harmony</h3>
+                        <p class="event-date">Date: 22nd April 2025</p>
+                        <p class="event-date">Time: 10:00 AM - 6:00 PM</p>
+                        <p>A vibrant celebration of diverse cultures through music, dance, and art performances.</p>
+                        <button class="event-button">Join Us</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Call to Action Buttons -->
+            <div class="mt-8 w-full flex flex-col md:flex-row justify-center items-center">
+                <button class="btn-neon text-2xl font-bold" onclick="scrollToSection('academic-calendar')">
+                    View Full Academic Calendar
+                </button>
+                <button class="btn-neon text-2xl font-bold" id="get-reminders-btn">
+                    Get Reminders
+                </button>
+            </div>
+
+            <!-- Academic Calendar Section -->
+            <section id="academic-calendar" class="w-full max-w-4xl mx-auto calendar-container">
+                <h3 class="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 via-lime-300 to-green-400 mb-8">
+                    Academic Calendar
+                </h3>
+                <div class="calendar-header">
+                    <button id="prev-month-btn">Previous Month</button>
+                    <h4 id="current-month-year" class="text-3xl font-semibold low-neon-text"></h4>
+                    <button id="next-month-btn">Next Month</button>
+                </div>
+                <div id="calendar-grid" class="calendar-grid">
+                    <!-- Day names -->
+                    <div class="calendar-day-name">Sun</div>
+                    <div class="calendar-day-name">Mon</div>
+                    <div class="calendar-day-name">Tue</div>
+                    <div class="calendar-day-name">Wed</div>
+                    <div class="calendar-day-name">Thu</div>
+                    <div class="calendar-day-name">Fri</div>
+                    <div class="calendar-day-name">Sat</div>
+                    <!-- Calendar dates will be populated here by JavaScript -->
+                </div>
+            </section>
+
+            <!-- Additional Graphics - Confetti and Starbursts -->
+            <div class="absolute inset-0 overflow-hidden pointer-events-none">
+                <div class="absolute top-1/4 left-1/4 w-32 h-32 bg-purple-500 rounded-full mix-blend-screen opacity-30 animate-blob"></div>
+                <div class="absolute top-1/2 right-1/4 w-48 h-48 bg-pink-500 rounded-full mix-blend-screen opacity: 30; animation-delay: 2000ms;"></div>
+                <div class="absolute bottom-1/4 left-1/3 w-40 h-40 bg-teal-500 rounded-full mix-blend-screen opacity: 30; animation-delay: 4000ms;"></div>
+            </div>
+        </main>
+
+        <!-- Footer Section -->
+        <footer class="w-full text-center py-6 px-4 mt-8 z-10">
+            <p class="text-lg md:text-xl font-bold uppercase tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-red-400 via-yellow-500 to-green-500 pb-1">
+                Smt. Labhuben Kanjibhai Babariya Secondary and Higher Secondary School Hamapur
+            </p>
+            <p class="text-sm md:text-md text-gray-400">&copy; 2025 All Rights Reserved. Designed with ❤️</p>
+        </footer>
+    </div>
+
+    <!-- Event Details Modal Structure -->
+    <div id="details-modal-backdrop" class="details-modal-backdrop hidden">
+        <div class="details-modal-content">
+            <button id="close-details-modal" class="close-button">&times;</button>
+            <h3 id="details-modal-title"></h3>
+            <div id="details-modal-events" class="text-left">
+                <!-- Event details will be populated here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Reminders Modal Structure -->
+    <div id="reminders-modal-backdrop" class="reminders-modal-backdrop hidden">
+        <div class="reminders-modal-content">
+            <button id="close-reminders-modal" class="close-button">&times;</button>
+            <h3>Get Reminders for Academic Events</h3>
+            <p class="text-center text-gray-300 mb-6">Choose how you'd like to add our academic events to your calendar:</p>
+            <div class="flex flex-col items-center w-full">
+                <button class="reminder-option-btn" id="add-google-calendar-btn">Add all events to Google Calendar</button>
+                <button class="reminder-option-btn" id="download-ical-btn">Download iCal for all events (.ics)</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Global variables for current calendar date
+        let currentCalendarDate = new Date();
+
+        // Academic Events Data
+        const academicEvents = [
+            { date: '2025-01-26', name: 'Annual Function 2025: Zenith', type: 'School Event', description: 'Our biggest annual celebration featuring cultural performances, academic achievements, and felicitation ceremonies.', startTime: '09:00', endTime: '14:00' },
+            { date: '2025-02-15', name: 'Annual Sports Day', type: 'School Event', description: 'A day of athleticism, team spirit, and healthy competition across various sports disciplines.', startTime: '08:30', endTime: '16:00' },
+            { date: '2025-03-10', name: 'Science & Innovation Fair', type: 'School Event', description: 'Showcasing the scientific prowess and innovative projects of our talented students.', startTime: '10:00', endTime: '15:00' },
+            { date: '2025-04-05', name: 'Inter-House Debate Competition', type: 'School Event', description: 'Witness sharp minds battle it out in a stimulating war of words.', startTime: '13:00', endTime: '17:00' },
+            { date: '2025-04-22', name: 'Cultural Fest: Harmony', type: 'School Event', description: 'A vibrant celebration of diverse cultures through music, dance, and art performances.', startTime: '10:00', endTime: '18:00' },
+            { date: '2025-01-01', name: 'New Year\'s Day', type: 'Holiday', description: 'School closed for New Year\'s Day.' },
+            { date: '2025-01-14', name: 'Makar Sankranti', type: 'Holiday', description: 'School closed for Makar Sankranti.' },
+            { date: '2025-01-26', name: 'Republic Day', type: 'Holiday', description: 'National Holiday.' }, // Duplicates with Annual Function, will show both
+            { date: '2025-03-25', name: 'Holi', type: 'Holiday', description: 'School closed for Holi.' },
+            { date: '2025-05-01', name: 'Maharashtra Day', type: 'Holiday', description: 'School closed for Maharashtra Day.' },
+            { date: '2025-06-01', name: 'Summer Vacation Begins', type: 'Important Date', description: 'Last day of school before summer vacation. Enjoy your break!' },
+            { date: '2025-06-30', name: 'Summer Vacation Ends', type: 'Important Date', description: 'First day of school after summer vacation. Welcome back!' },
+            { date: '2025-07-15', name: 'Parent-Teacher Meeting (Primary)', type: 'Important Date', description: 'Meeting for parents of primary students to discuss progress.' },
+            { date: '2025-07-16', name: 'Parent-Teacher Meeting (Secondary)', type: 'Important Date', description: 'Meeting for parents of secondary students to discuss progress.' },
+            { date: '2025-08-15', name: 'Independence Day', type: 'Holiday', description: 'National Holiday.' },
+            { date: '2025-09-05', name: 'Teachers Day Celebration', type: 'School Event', description: 'Celebrating our dedicated teachers.' },
+            { date: '2025-10-02', name: 'Gandhi Jayanti', type: 'Holiday', description: 'National Holiday.' },
+            { date: '2025-10-25', name: 'Diwali Break Begins', type: 'Important Date', description: 'School closes for Diwali vacation.' },
+            { date: '2025-11-05', name: 'Diwali Break Ends', type: 'Important Date', description: 'School reopens after Diwali vacation.' },
+        ];
+
+        // Function to render the calendar
+        function renderCalendar() {
+            const monthYearDisplay = document.getElementById('current-month-year');
+            const calendarGrid = document.getElementById('calendar-grid');
+
+            calendarGrid.innerHTML = ''; // Clear previous dates and day names
+
+            // Add day names (Sun, Mon, Tue, etc.)
+            const dayNames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+            dayNames.forEach(day => {
+                const dayNameDiv = document.createElement('div');
+                dayNameDiv.className = 'calendar-day-name';
+                dayNameDiv.textContent = day;
+                calendarGrid.appendChild(dayNameDiv);
+            });
+
+            const year = currentCalendarDate.getFullYear();
+            const month = currentCalendarDate.getMonth(); // 0-indexed
+
+            monthYearDisplay.textContent = currentCalendarDate.toLocaleString('en-US', { month: 'long', year: 'numeric' });
+
+            // Get the first day of the month and the number of days in the month
+            const firstDayOfMonth = new Date(year, month, 1).getDay(); // 0 = Sunday, 1 = Monday, etc.
+            const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+            // Fill in leading empty days
+            for (let i = 0; i < firstDayOfMonth; i++) {
+                const emptyDiv = document.createElement('div');
+                emptyDiv.className = 'calendar-date empty';
+                calendarGrid.appendChild(emptyDiv);
+            }
+
+            // Fill in days of the month
+            for (let day = 1; day <= daysInMonth; day++) {
+                const dateDiv = document.createElement('div');
+                dateDiv.className = 'calendar-date';
+                dateDiv.textContent = day;
+
+                const today = new Date();
+                const isCurrentDay = (day === today.getDate() && month === today.getMonth() && year === today.getFullYear());
+                if (isCurrentDay) {
+                    dateDiv.classList.add('current-day');
+                }
+
+                // Check for events on this date
+                const dateString = `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+                const eventsOnThisDate = academicEvents.filter(event => event.date === dateString);
+
+                if (eventsOnThisDate.length > 0) {
+                    dateDiv.classList.add('has-event');
+                    dateDiv.title = 'Click for event details'; // Add tooltip
+
+                    dateDiv.addEventListener('click', () => {
+                        openDetailsModal(dateString, eventsOnThisDate);
+                    });
+                } else if (!isCurrentDay) {
+                    // Only add click listener for non-event, non-current days if they do something, otherwise not needed
+                    // For now, no specific action for empty days, so no click listener here.
+                }
+                
+                calendarGrid.appendChild(dateDiv);
+            }
+        }
+
+        // Event Details Modal Functions
+        const detailsModalBackdrop = document.getElementById('details-modal-backdrop');
+        const closeDetailsModalButton = document.getElementById('close-details-modal');
+        const detailsModalTitle = document.getElementById('details-modal-title');
+        const detailsModalEventsContainer = document.getElementById('details-modal-events');
+
+        function openDetailsModal(dateString, events) {
+            detailsModalTitle.textContent = `Events on ${new Date(dateString).toLocaleDateString('en-US', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' })}`;
+            detailsModalEventsContainer.innerHTML = ''; // Clear previous content
+
+            if (events.length > 0) {
+                events.forEach(event => {
+                    const eventDetail = document.createElement('div');
+                    eventDetail.className = 'mb-4 p-3 rounded-lg';
+                    eventDetail.style.backgroundColor = 'rgba(50, 50, 70, 0.7)'; // Slightly lighter dark background
+                    eventDetail.style.border = '1px solid rgba(0, 255, 255, 0.4)'; // Subtle cyan border
+
+                    eventDetail.innerHTML = `
+                        <p class="font-bold text-xl text-yellow-300 mb-1">${event.name}</p>
+                        <p class="text-cyan-300 text-sm mb-1">Type: ${event.type}</p>
+                        <p class="text-gray-300">${event.description}</p>
+                        ${event.startTime && event.endTime ? `<p class="text-gray-400 text-sm">Time: ${event.startTime} - ${event.endTime}</p>` : ''}
+                    `;
+                    detailsModalEventsContainer.appendChild(eventDetail);
+                });
+            } else {
+                detailsModalEventsContainer.innerHTML = '<p class="text-center text-gray-400">No events for this date.</p>';
+            }
+
+            detailsModalBackdrop.classList.add('open');
+            detailsModalBackdrop.classList.remove('hidden');
+        }
+
+        function closeDetailsModal() {
+            detailsModalBackdrop.classList.remove('open');
+            setTimeout(() => {
+                detailsModalBackdrop.classList.add('hidden');
+            }, 400); // Match CSS transition duration
+        }
+
+        // Close modal listeners for Event Details Modal
+        closeDetailsModalButton.addEventListener('click', closeDetailsModal);
+        detailsModalBackdrop.addEventListener('click', (e) => {
+            if (e.target === detailsModalBackdrop) {
+                closeDetailsModal();
+            }
+        });
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && detailsModalBackdrop.classList.contains('open')) {
+                closeDetailsModal();
+            }
+        });
+
+
+        // Reminders Modal Functions
+        const remindersModalBackdrop = document.getElementById('reminders-modal-backdrop');
+        const closeRemindersModalButton = document.getElementById('close-reminders-modal');
+        const getRemindersButton = document.getElementById('get-reminders-btn');
+        const addGoogleCalendarBtn = document.getElementById('add-google-calendar-btn');
+        const downloadIcalBtn = document.getElementById('download-ical-btn');
+
+        function openRemindersModal() {
+            remindersModalBackdrop.classList.add('open');
+            remindersModalBackdrop.classList.remove('hidden');
+        }
+
+        function closeRemindersModal() {
+            remindersModalBackdrop.classList.remove('open');
+            setTimeout(() => {
+                remindersModalBackdrop.classList.add('hidden');
+            }, 400); // Match CSS transition duration
+        }
+
+        // Event listeners for Reminders Modal
+        getRemindersButton.addEventListener('click', openRemindersModal);
+        closeRemindersModalButton.addEventListener('click', closeRemindersModal);
+        remindersModalBackdrop.addEventListener('click', (e) => {
+            if (e.target === remindersModalBackdrop) {
+                closeRemindersModal();
+            }
+        });
+
+        // Google Calendar Integration
+        addGoogleCalendarBtn.addEventListener('click', () => {
+            let googleCalendarUrl = 'https://calendar.google.com/calendar/render?action=TEMPLATE';
+
+            academicEvents.forEach((event, index) => {
+                // Ensure event has start and end times for Google Calendar
+                const startDateTime = event.startTime ? new Date(`${event.date}T${event.startTime}:00`) : new Date(event.date);
+                const endDateTime = event.endTime ? new Date(`${event.date}T${event.endTime}:00`) : new Date(startDateTime.getTime() + (60 * 60 * 1000)); // Default 1 hour if no end time
+
+                const formatGoogleDate = (dateObj) => {
+                    return dateObj.getFullYear() +
+                           String(dateObj.getMonth() + 1).padStart(2, '0') +
+                           String(dateObj.getDate()).padStart(2, '0') +
+                           String(dateObj.getHours()).padStart(2, '0') +
+                           String(dateObj.getMinutes()).padStart(2, '0') +
+                           '00'; // Seconds are always 00
+                };
+
+                const dates = `${formatGoogleDate(startDateTime)}/${formatGoogleDate(endDateTime)}`;
+                const title = encodeURIComponent(event.name);
+                const details = encodeURIComponent(`${event.type}: ${event.description}`);
+                const location = encodeURIComponent('SMT Labhuben Kanjibhai Babariya Secondary and Higher Secondary School Hamapur');
+
+                // For simplicity and as a single event link, we'll just add the first few events or combine them
+                // A better approach for multiple events would be to guide the user to subscribe to a calendar feed
+                // For this example, let's just make one combined event or open the first one for demonstration
+                if (index === 0) { // Just for the first event as a demo
+                    googleCalendarUrl += `&text=${title}&dates=${dates}&details=${details}&location=${location}`;
+                }
+            });
+            // Note: Google Calendar API for batch adding multiple distinct events is complex.
+            // This URL template is primarily for single events. For multiple, users usually subscribe to an iCal feed.
+            
+            window.open(googleCalendarUrl, '_blank');
+            closeRemindersModal();
+        });
+
+        // iCal Download (Placeholder for actual .ics generation)
+        downloadIcalBtn.addEventListener('click', () => {
+            // In a real application, you'd generate a .ics file content here
+            // Example .ics content structure (simplified):
+            let icalContent = `BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Smt. Labhuben Kanjibhai Babariya School//NONSGML Academic Events//EN\n`;
+
+            academicEvents.forEach(event => {
+                const startDateTime = event.startTime ? new Date(`${event.date}T${event.startTime}:00`) : new Date(event.date);
+                const endDateTime = event.endTime ? new Date(`${event.date}T${event.endTime}:00`) : new Date(startDateTime.getTime() + (60 * 60 * 1000));
+
+                const formatIcalDate = (dateObj) => {
+                    return dateObj.toISOString().replace(/[-:]|\.\d{3}/g, '');
+                };
+
+                icalContent += `BEGIN:VEVENT
+UID:${event.date}-${event.name.replace(/\s/g, '')}@school.edu.in
+DTSTAMP:${formatIcalDate(new Date())}
+DTSTART:${formatIcalDate(startDateTime)}
+DTEND:${formatIcalDate(endDateTime)}
+SUMMARY:${event.name} (${event.type})
+DESCRIPTION:${event.description}
+LOCATION:SMT Labhuben Kanjibhai Babariya Secondary and Higher Secondary School Hamapur
+END:VEVENT\n`;
+            });
+
+            icalContent += `END:VCALENDAR`;
+
+            // Create a Blob and trigger download
+            const blob = new Blob([icalContent], { type: 'text/calendar;charset=utf-8' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'school_academic_calendar.ics';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+
+            alert('Academic Calendar (.ics) download initiated!');
+            closeRemindersModal();
+        });
+
+
+        // Navigation for calendar
+        document.getElementById('prev-month-btn').addEventListener('click', () => {
+            currentCalendarDate.setMonth(currentCalendarDate.getMonth() - 1);
+            renderCalendar();
+        });
+
+        document.getElementById('next-month-btn').addEventListener('click', () => {
+            currentCalendarDate.setMonth(currentCalendarDate.getMonth() + 1);
+            renderCalendar();
+        });
+
+        // Initialize calendar on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            renderCalendar();
+        });
+
+        // Smooth scrolling for navigation links
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            if (section) {
+                section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+
+        // Custom animation delays for blobs
+        document.addEventListener('DOMContentLoaded', () => {
+            const blobElements = document.querySelectorAll('.animate-blob');
+            blobElements.forEach((el, index) => {
+                if (el.classList.contains('animation-delay-2000')) {
+                    el.style.animationDelay = '2s';
+                } else if (el.classList.contains('animation-delay-4000')) {
+                    el.style.animationDelay = '4s';
+                }
+            });
+        });
+
+    </script>
+</body>
+</html>

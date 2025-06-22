@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smt Labhuben Kanjibhai Babariya Secondary and Higher Secondary School Hamapur - 10th Standard Old Exam Papers</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter for body, Monoton for display -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Monoton&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            background-size: 400% 400%;
+            animation: gradientAnimation 15s ease infinite;
+            color: #e0e0e0;
+            overflow-x: hidden;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .neon-text {
+            font-family: 'Monoton', cursive;
+            text-shadow:
+                0 0 5px #fff,
+                0 0 10px #fff,
+                0 0 20px #fff,
+                0 0 40px #0ff,
+                0 0 80px #0ff,
+                0 0 90px #0ff,
+                0 0 100px #0ff,
+                0 0 150px #0ff;
+            color: #f0f0f0;
+        }
+
+        .decorative-light-left,
+        .decorative-light-right {
+            position: absolute;
+            width: 100px;
+            height: 300px;
+            background: linear-gradient(to bottom, rgba(255, 0, 255, 0.5), rgba(0, 255, 255, 0));
+            filter: blur(80px);
+            opacity: 0.6;
+            animation: pulse-light 5s infinite alternate;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .decorative-light-left {
+            top: 10%;
+            left: -50px;
+            transform: rotate(-30deg);
+        }
+
+        .decorative-light-right {
+            top: 30%;
+            right: -50px;
+            transform: rotate(30deg);
+            background: linear-gradient(to bottom, rgba(0, 255, 255, 0.5), rgba(255, 0, 255, 0));
+        }
+
+        @keyframes pulse-light {
+            0% { transform: scale(1) rotate(0deg); opacity: 0.6; }
+            50% { transform: scale(1.1) rotate(5deg); opacity: 0.8; }
+            100% { transform: scale(1) rotate(0deg); opacity: 0.6; }
+        }
+
+        .content-section {
+            background-color: rgba(15, 12, 41, 0.7);
+            border-radius: 1.5rem;
+            padding: 2.5rem;
+            margin-bottom: 2.5rem;
+            text-align: center;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 2px solid transparent;
+            position: relative;
+        }
+
+        .content-section:hover {
+            transform: translateY(-8px);
+            box-shadow:
+                0 0 20px #06f,
+                0 0 40px #f06,
+                0 0 80px #a600ff,
+                0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            border-color: #0ff;
+        }
+
+        .content-section h2 {
+            font-family: 'Monoton', cursive;
+            text-shadow:
+                0 0 5px #fff,
+                0 0 10px #fff,
+                0 0 20px #fff,
+                0 0 40px #0ff;
+            color: #f0f0f0;
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+        }
+
+        .content-section p {
+            font-size: 1.1rem;
+            line-height: 1.75;
+            color: #d0d0d0;
+            margin-bottom: 1rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .paper-card {
+            background-color: rgba(30, 30, 50, 0.8);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            text-align: left;
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 255, 255, 0.3);
+        }
+        .paper-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.5), 0 0 25px rgba(255, 0, 255, 0.3);
+        }
+        .paper-card h3 {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.6rem;
+            font-weight: bold;
+            color: #FFBE0B; /* Yellowish for titles */
+            margin-bottom: 0.75rem;
+        }
+        .paper-card p {
+            font-size: 1rem;
+            color: #c0c0c0;
+            margin-bottom: 0.5rem;
+            line-height: 1.5;
+        }
+        .download-button {
+            background-image: linear-gradient(to right, #00C9FF 0%, #92FE9D 51%, #00C9FF 100%);
+            padding: 0.6rem 1.5rem;
+            text-align: center;
+            text-transform: uppercase;
+            transition: 0.5s;
+            background-size: 200% auto;
+            color: white;
+            box-shadow: 0 0 10px rgba(0, 200, 255, 0.5);
+            border-radius: 0.5rem;
+            cursor: pointer;
+            border: none;
+            outline: none;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            margin-right: 0.5rem; /* Spacing between buttons */
+            margin-bottom: 0.5rem; /* Spacing between buttons for wrapping */
+        }
+        .download-button:hover {
+            background-position: right center;
+            color: #fff;
+            text-decoration: none;
+            box-shadow: 0 0 20px rgba(0, 200, 255, 0.8), 0 0 30px rgba(146, 254, 157, 0.8);
+        }
+    </style>
+</head>
+<body class="flex flex-col items-center justify-between relative">
+    <div class="decorative-light-left hidden md:block"></div>
+    <div class="decorative-light-right hidden md:block"></div>
+
+    <div class="content-container w-full max-w-6xl mx-auto z-10">
+        <header class="w-full py-6 px-4 z-50 sticky top-0 bg-gray-900 bg-opacity-90 flex items-center justify-start">
+            <img src="images/LOGO2.png" alt="School Logo" class="h-24 sm:h-32 mr-4 flex-shrink-0">
+            <div class="flex flex-col flex-grow text-center">
+                <h1 class="text-3xl md:text-5xl font-bold uppercase tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 pb-1 leading-none w-full">
+                    SMT LABHUBEN KANJIBHAI BABARIYA SECONDARY AND HIGHER SECONDARY SCHOOL HAMAPUR
+                </h1>
+                
+            </div>
+            <div class="h-24 sm:h-32 flex-shrink-0" style="width: calc(6rem + 1rem);"></div>
+        </header>
+
+        <main class="flex-grow flex flex-col items-center justify-center w-full p-4 md:p-8">
+            <div class="text-center mb-10">
+                <h2 class="text-6xl md:text-8xl font-extrabold neon-text animate-pulse mb-4 leading-tight">
+                    OLD EXAM PAPERS
+                </h2>
+                <p class="text-4xl md:text-6xl font-semibold text-white tracking-wide">
+                    10th Standard
+                </p>
+                <p class="text-xl md:text-2xl text-gray-400 mt-4 max-w-3xl mx-auto">
+                    Access past examination papers to aid in your preparation and practice.
+                </p>
+                <p class="text-red-400 text-sm mt-2">
+                    Note: Actual papers cannot be directly fetched from the GSEB site due to technical limitations. These are placeholder links.
+                </p>
+            </div>
+
+            <section id="old-papers-10th-content" class="content-section w-full mx-auto my-8" tabindex="0">
+                <h2>Previous Year Papers (10th Standard)</h2>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+                    <!-- Year 2024 Papers -->
+                    <div class="paper-card">
+                        <h3>2024 Board Papers</h3>
+                        <p><strong>Subjects:</strong> Mathematics, Science, Social Science, English (First Language), English (Second Language), Gujarati (First Language), Gujarati (Second Language), Hindi, Sanskrit/Other Language</p>
+                        <p>This set includes the final examination papers from the 2024 academic year.</p>
+                        <a href="https://example.com/gseb-10th-2024-math.pdf" target="_blank" class="download-button">Math (2024)</a>
+                        <a href="https://example.com/gseb-10th-2024-science.pdf" target="_blank" class="download-button">Science (2024)</a>
+                        <a href="https://example.com/gseb-10th-2024-social.pdf" target="_blank" class="download-button">Social Science (2024)</a>
+                        <a href="https://example.com/gseb-10th-2024-english-fl.pdf" target="_blank" class="download-button">English FL (2024)</a>
+                        <a href="https://example.com/gseb-10th-2024-gujarati-fl.pdf" target="_blank" class="download-button">Gujarati FL (2024)</a>
+                        <a href="https://example.com/gseb-10th-2024-hindi.pdf" target="_blank" class="download-button">Hindi (2024)</a>
+                        <a href="https://example.com/gseb-10th-2024-sanskrit.pdf" target="_blank" class="download-button">Sanskrit (2024)</a>
+                    </div>
+
+                    <!-- Year 2023 Papers -->
+                    <div class="paper-card">
+                        <h3>2023 Board Papers</h3>
+                        <p><strong>Subjects:</strong> Mathematics, Science, Social Science, English (First Language), English (Second Language), Gujarati (First Language), Gujarati (Second Language), Hindi, Sanskrit/Other Language</p>
+                        <p>Review the examination papers from the 2023 academic year for comprehensive practice.</p>
+                        <a href="https://example.com/gseb-10th-2023-math.pdf" target="_blank" class="download-button">Math (2023)</a>
+                        <a href="https://example.com/gseb-10th-2023-science.pdf" target="_blank" class="download-button">Science (2023)</a>
+                        <a href="https://example.com/gseb-10th-2023-social.pdf" target="_blank" class="download-button">Social Science (2023)</a>
+                        <a href="https://example.com/gseb-10th-2023-english-fl.pdf" target="_blank" class="download-button">English FL (2023)</a>
+                        <a href="https://example.com/gseb-10th-2023-gujarati-fl.pdf" target="_blank" class="download-button">Gujarati FL (2023)</a>
+                        <a href="https://example.com/gseb-10th-2023-hindi.pdf" target="_blank" class="download-button">Hindi (2023)</a>
+                        <a href="https://example.com/gseb-10th-2023-sanskrit.pdf" target="_blank" class="download-button">Sanskrit (2023)</a>
+                    </div>
+
+                    <!-- Year 2022 Papers -->
+                    <div class="paper-card">
+                        <h3>2022 Board Papers</h3>
+                        <p><strong>Subjects:</strong> Mathematics, Science, Social Science, English (First Language), English (Second Language), Gujarati (First Language), Gujarati (Second Language), Hindi, Sanskrit/Other Language</p>
+                        <p>Practice with the examination papers from the 2022 academic year to strengthen your understanding.</p>
+                        <a href="https://example.com/gseb-10th-2022-math.pdf" target="_blank" class="download-button">Math (2022)</a>
+                        <a href="https://example.com/gseb-10th-2022-science.pdf" target="_blank" class="download-button">Science (2022)</a>
+                        <a href="https://example.com/gseb-10th-2022-social.pdf" target="_blank" class="download-button">Social Science (2022)</a>
+                        <a href="https://example.com/gseb-10th-2022-english-fl.pdf" target="_blank" class="download-button">English FL (2022)</a>
+                        <a href="https://example.com/gseb-10th-2022-gujarati-fl.pdf" target="_blank" class="download-button">Gujarati FL (2022)</a>
+                        <a href="https://example.com/gseb-10th-2022-hindi.pdf" target="_blank" class="download-button">Hindi (2022)</a>
+                        <a href="https://example.com/gseb-10th-2022-sanskrit.pdf" target="_blank" class="download-button">Sanskrit (2022)</a>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="w-full text-center py-6 px-4 mt-8 z-10">
+            <p class="text-lg md:text-xl font-bold uppercase tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-red-400 via-yellow-500 to-green-500 pb-1">
+                Smt. Labhuben Kanjibhai Babariya Secondary and Higher Secondary School Hamapur
+            </p>
+            <p class="text-sm md:text-md text-gray-400">&copy; 2025 All Rights Reserved. Designed with ❤️</p>
+        </footer>
+    </div>
+</body>
+</html>

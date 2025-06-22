@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smt Labhuben Kanjibhai Babariya Secondary and Higher Secondary School Hamapur - Achievements</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter for body, Monoton for display -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Monoton&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            background-size: 400% 400%;
+            animation: gradientAnimation 15s ease infinite;
+            color: #e0e0e0;
+            overflow-x: hidden;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .neon-text {
+            font-family: 'Monoton', cursive;
+            text-shadow:
+                0 0 5px #fff,
+                0 0 10px #fff,
+                0 0 20px #fff,
+                0 0 40px #0ff,
+                0 0 80px #0ff,
+                0 0 90px #0ff,
+                0 0 100px #0ff,
+                0 0 150px #0ff;
+            color: #f0f0f0;
+        }
+
+        .decorative-light-left,
+        .decorative-light-right {
+            position: absolute;
+            width: 100px;
+            height: 300px;
+            background: linear-gradient(to bottom, rgba(255, 0, 255, 0.5), rgba(0, 255, 255, 0));
+            filter: blur(80px);
+            opacity: 0.6;
+            animation: pulse-light 5s infinite alternate;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .decorative-light-left {
+            top: 10%;
+            left: -50px;
+            transform: rotate(-30deg);
+        }
+
+        .decorative-light-right {
+            top: 30%;
+            right: -50px;
+            transform: rotate(30deg);
+            background: linear-gradient(to bottom, rgba(0, 255, 255, 0.5), rgba(255, 0, 255, 0));
+        }
+
+        @keyframes pulse-light {
+            0% { transform: scale(1) rotate(0deg); opacity: 0.6; }
+            50% { transform: scale(1.1) rotate(5deg); opacity: 0.8; }
+            100% { transform: scale(1) rotate(0deg); opacity: 0.6; }
+        }
+
+        /* Reusing common styles for content sections and cards */
+        .content-section {
+            background-color: rgba(15, 12, 41, 0.7);
+            border-radius: 1.5rem;
+            padding: 2.5rem;
+            margin-bottom: 2.5rem;
+            text-align: center;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 2px solid transparent;
+            position: relative;
+        }
+
+        .content-section:hover {
+            transform: translateY(-8px);
+            box-shadow:
+                0 0 20px #06f,
+                0 0 40px #f06,
+                0 0 80px #a600ff,
+                0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            border-color: #0ff;
+        }
+
+        .content-section h2 {
+            font-family: 'Monoton', cursive;
+            text-shadow:
+                0 0 5px #fff,
+                0 0 10px #fff,
+                0 0 20px #fff,
+                0 0 40px #0ff;
+            color: #f0f0f0;
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+        }
+
+        .content-section p {
+            font-size: 1.1rem;
+            line-height: 1.75;
+            color: #d0d0d0;
+            margin-bottom: 1rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .achievement-card {
+            background-color: rgba(15, 12, 41, 0.7);
+            border-radius: 1.5rem;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 2px solid transparent;
+            position: relative;
+        }
+
+        .achievement-card:hover {
+            transform: translateY(-8px);
+            box-shadow:
+                0 0 20px #06f,
+                0 0 40px #f06,
+                0 0 80px #a600ff,
+                0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            border-color: #0ff;
+        }
+
+        .achievement-card h3 {
+            font-family: 'Monoton', cursive;
+            text-shadow:
+                0 0 5px #fff,
+                0 0 10px #fff,
+                0 0 20px #fff,
+                0 0 40px #0ff;
+            color: #f0f0f0;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .achievement-card p {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #d0d0d0;
+            margin-bottom: 1rem;
+        }
+        .achievement-icon {
+            height: 80px;
+            width: 80px;
+            margin: 0 auto 1rem auto;
+            color: #0ff; /* Icon color */
+            filter: drop-shadow(0 0 5px #0ff) drop-shadow(0 0 10px #0ff); /* Icon glow */
+        }
+    </style>
+</head>
+<body class="flex flex-col items-center justify-between relative">
+    <div class="decorative-light-left hidden md:block"></div>
+    <div class="decorative-light-right hidden md:block"></div>
+
+    <div class="content-container w-full max-w-6xl mx-auto z-10">
+        <header class="w-full py-6 px-4 z-50 sticky top-0 bg-gray-900 bg-opacity-90 flex items-center justify-start">
+            <img src="images/LOGO2.png" alt="School Logo" class="h-24 sm:h-32 mr-4 flex-shrink-0">
+            <div class="flex flex-col flex-grow text-center">
+                <h1 class="text-3xl md:text-5xl font-bold uppercase tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 pb-1 leading-none w-full">
+                    SMT LABHUBEN KANJIBHAI BABARIYA SECONDARY AND HIGHER SECONDARY SCHOOL HAMAPUR
+                </h1>
+                
+            </div>
+            <div class="h-24 sm:h-32 flex-shrink-0" style="width: calc(6rem + 1rem);"></div>
+        </header>
+
+        <main class="flex-grow flex flex-col items-center justify-center w-full p-4 md:p-8">
+            <div class="text-center mb-10">
+                <h2 class="text-6xl md:text-8xl font-extrabold neon-text animate-pulse mb-4 leading-tight">
+                    ABOUT US
+                </h2>
+                <p class="text-4xl md:text-6xl font-semibold text-white tracking-wide">
+                    Our Achievements and Milestones
+                </p>
+                <p class="text-xl md:text-2xl text-gray-400 mt-4 max-w-3xl mx-auto">
+                    A testament to the hard work and dedication of our students and staff.
+                </p>
+            </div>
+
+            <section id="achievements" class="content-section w-full mx-auto my-8" tabindex="0">
+                <h2>Our Glorious Achievements</h2>
+                <p>
+                    At SMT Labhuben Kanjibhai Babariya Secondary and Higher Secondary School Hamapur, we pride ourselves on a consistent record of excellence, both academically and in extracurricular activities. Our students and faculty continually strive for and achieve remarkable feats.
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-10">
+                    <!-- Achievement Card 1: Academic Excellence -->
+                    <div class="achievement-card">
+                        <svg class="achievement-icon mx-auto" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.76-7 8.94V12H5V6.3l7-3.11z"/>
+                        </svg>
+                        <h3>Consistently High Board Results</h3>
+                        <p>Achieving a pass percentage of over 95% in both Secondary and Higher Secondary Board Examinations for the last five years.</p>
+                    </div>
+
+                    <!-- Achievement Card 2: Sports Championships -->
+                    <div class="achievement-card">
+                        <svg class="achievement-icon mx-auto" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1.5 15.5V9h3v8.5H12c-.28 0-.5.22-.5.5s.22.5.5.5h.5V18h-1.5zm.5-9h-1.5V5.5h1.5V8z"/>
+                        </svg>
+                        <h3>State-Level Sports Champions</h3>
+                        <p>Our athletic teams have secured multiple championships in various state-level competitions including Kho-Kho, Kabaddi, and Athletics.</p>
+                    </div>
+
+                    <!-- Achievement Card 3: Science Fair Victories -->
+                    <div class="achievement-card">
+                        <svg class="achievement-icon mx-auto" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
+                        </svg>
+                        <h3>National Science Exhibition Winners</h3>
+                        <p>Students' innovative projects have won top honors at the National Science & Technology Exhibitions, showcasing their scientific aptitude.</p>
+                    </div>
+
+                    <!-- Achievement Card 4: Arts & Cultural Recognition -->
+                    <div class="achievement-card">
+                        <svg class="achievement-icon mx-auto" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/>
+                        </svg>
+                        <h3>Cultural Excellence Awards</h3>
+                        <p>Awarded 'Best Cultural Institution' at regional festivals for our vibrant folk dance, drama, and music performances.</p>
+                    </div>
+
+                    <!-- Achievement Card 5: Community Service -->
+                    <div class="achievement-card">
+                        <svg class="achievement-icon mx-auto" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm2 0h-2v-8h2v8zm-5-8h-2v8h2v-8zm10 0h-2v8h2v-8z"/>
+                        </svg>
+                        <h3>Active Community Engagement</h3>
+                        <p>Recognized for significant contributions to local community service initiatives, including environmental drives and literacy programs.</p>
+                    </div>
+
+                    <!-- Achievement Card 6: Alumni Success -->
+                    <div class="achievement-card">
+                        <svg class="achievement-icon mx-auto" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.38 0 2.5 1.12 2.5 2.5S13.38 10.5 12 10.5 9.5 9.38 9.5 8 10.62 5 12 5zm-2.5 13.5v-1c0-1.66 3.33-2.5 5-2.5s5 .84 5 2.5v1H9.5z"/>
+                        </svg>
+                        <h3>Distinguished Alumni Network</h3>
+                        <p>Our alumni have achieved success in diverse fields, with many pursuing higher education at prestigious national and international universities.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="w-full text-center py-6 px-4 mt-8 z-10">
+            <p class="text-lg md:text-xl font-bold uppercase tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-red-400 via-yellow-500 to-green-500 pb-1">
+                Smt. Labhuben Kanjibhai Babariya Secondary and Higher Secondary School Hamapur
+            </p>
+            <p class="text-sm md:text-md text-gray-400">&copy; 2025 All Rights Reserved. Designed with ❤️</p>
+        </footer>
+    </div>
+</body>
+</html>

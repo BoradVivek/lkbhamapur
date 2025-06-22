@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+<title>SMT Labhuben Kanjibhai Babariya School - Login & Registration</title>
+  <link rel="stylesheet" type="text/css" href="index.css">
+</head>
+<body>
+  <div class="container" role="main">
+
+    <!-- Login Form -->
+    <section id="login-section" class="card" aria-label="Login form">
+      <h2>Login</h2>
+      <form id="login-form" novalidate onsubmit="return handleLogin(event)">
+        <label for="login-role">I am a:</label>
+        <select id="login-role" name="role" required aria-required="true" aria-describedby="login-role-desc">
+          <option value="" disabled selected>Select role</option>
+          <option value="student">Student</option>
+          <option value="staff">Staff</option>
+        </select>
+        <span id="login-role-desc" class="sr-only">Select if you are student or staff</span>
+
+        <label for="login-email">Email:</label>
+        <input type="email" id="login-email" name="email" autocomplete="username" required aria-required="true" />
+
+        <label for="login-password">Password:</label>
+        <input type="password" id="login-password" name="password" autocomplete="current-password" required aria-required="true" />
+
+        <button type="submit" aria-label="Login to school portal">Login</button>
+
+<a href="forgot-password.html" class="btn-forgot" aria-label="Forgot password">Forgotten password?</a>
+      </form>
+      <div class="toggle-text">
+        Don't have an account? <span id="show-register" role="button" tabindex="0" aria-pressed="false">Register here</span>
+      </div>
+    </section>
+
+    <!-- Registration Form -->
+    <section id="register-section" class="card" aria-label="Registration form" style="display:none;">
+      <h2>Register</h2>
+      <form id="register-form" novalidate onsubmit="return handleRegister(event)">
+        <label for="reg-name">Full Name:</label>
+        <input type="text" id="reg-name" name="Name" autocomplete="name" required aria-required="true"/>
+
+        <label for="reg-email">Email:</label>
+        <input type="email" id="reg-email" name="Email" autocomplete="email" required aria-required="true" />
+
+        <label for="reg-password">Password:</label>
+        <input type="password" id="reg-password" name="Password" autocomplete="new-password" required aria-required="true" />
+
+        <label for="reg-role">Register as:</label>
+        <select id="reg-role" name="Role" required aria-required="true" aria-describedby="reg-role-desc">
+          <option value="" disabled selected>Select role</option>
+          <option value="student">Student</option>
+          <option value="staff">Staff</option>
+        </select>
+        <span id="reg-role-desc" class="sr-only">Select if you are registering as student or staff</span>
+
+        <button type="submit" aria-label="Submit registration form">Register</button>
+      </form>
+      <div class="toggle-text">
+        Already have an account? <span id="show-login" role="button" tabindex="0" aria-pressed="false">Login here</span>
+      </div>
+    </section>
+
+  </div>
+
+  <footer>
+    &copy; 2024 SMT Labhuben Kanjibhai Babariya Secondary and Higher Secondary School Hamapur. All rights reserved.
+  </footer>
+
+<script>
+  // Toggle between login and register forms
+  const loginSection = document.getElementById('login-section');
+  const registerSection = document.getElementById('register-section');
+  const showRegisterBtn = document.getElementById('show-register');
+  const showLoginBtn = document.getElementById('show-login');
+
+  showRegisterBtn.addEventListener('click', () => {
+    loginSection.style.display = 'none';
+    registerSection.style.display = 'block';
+    showRegisterBtn.setAttribute('aria-pressed', 'true');
+    showLoginBtn.setAttribute('aria-pressed', 'false');
+  });
+  showLoginBtn.addEventListener('click', () => {
+    registerSection.style.display = 'none';
+    loginSection.style.display = 'block';
+    showRegisterBtn.setAttribute('aria-pressed', 'false');
+    showLoginBtn.setAttribute('aria-pressed', 'true');
+  });
+
+  showRegisterBtn.addEventListener('keydown', (e) => {
+    if(e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      showRegisterBtn.click();
+    }
+  });
+  showLoginBtn.addEventListener('keydown', (e) => {
+    if(e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      showLoginBtn.click();
+    }
+  });
+
+  // Util function to load users from localStorage
+  function loadUsers() {
+    const usersJson = localStorage.getItem('schoolUsers');
+    return usersJson ? JSON.parse(usersJson) : [];
+  }
+
+  // Util function to save users to localStorage
+  function saveUsers(users) {
+    localStorage.setItem('schoolUsers', JSON.stringify(users));
+  }
+
+  // Registration handler
+  function handleRegister(event) {
+    event.preventDefault();
+
+    const name = document.getElementById('reg-name').value.trim();
+    const email = document.getElementById('reg-email').value.trim().toLowerCase();
+    const password = document.getElementById('reg-password').value;
+    const role = document.getElementById('reg-role').value;
+
+    if(!name || !email || !password || !role) {
+      alert('Please fill in all registration fields.');
+      return false;
+    }
+
+    // Get current users
+    let users = loadUsers();
+
+    // Check if email already registered
+    if(users.some(u => u.email === email)) {
+      alert('This email is already registered. Please login or use another email.');
+      return false;
+    }
+
+    // Add new user
+    users.push({ name, email, password, role });
+    saveUsers(users);
+
+    alert('Registration successful! You can now login.');
+
+    // Clear registration form
+    event.target.reset();
+
+    // Switch to login form
+    registerSection.style.display = 'none';
+    loginSection.style.display = 'block';
+    showRegisterBtn.setAttribute('aria-pressed', 'false');
+    showLoginBtn.setAttribute('aria-pressed', 'true');
+
+    return false; // prevents form submission and page refresh
+  }
+
+  // Login handler
+  function handleLogin(event) {
+    event.preventDefault();
+
+    const role = document.getElementById('login-role').value;
+    const email = document.getElementById('login-email').value.trim().toLowerCase();
+    const password = document.getElementById('login-password').value;
+
+    if(!role || !email || !password) {
+      alert('Please fill in all login fields.');
+      return false;
+    }
+
+    const users = loadUsers();
+
+    const matchedUser = users.find(u => u.email === email && u.password === password && u.role === role);
+
+    if(matchedUser) {
+      // Successful login: redirect
+      alert(`Welcome, ${matchedUser.name}! Redirecting to the school page...`);
+      window.location.href = 'school.html';
+      return false;
+    } else {
+      alert('Wrong credentials or role. Please try again.');
+      return false;
+    }
+  }
+</script>
+
+<style>
+  .sr-only {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0,0,0,0) !important;
+    border: 0 !important;
+  }
+</style>
+</body>
+</html>

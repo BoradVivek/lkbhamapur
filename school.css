@@ -1,0 +1,322 @@
+ /* Reset and base */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+    body {
+      margin-top: 0;
+      margin-right: 60px;
+      margin-bottom: 0;
+      margin-left: 60px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: #000000;
+      height: 100vh;
+      /* Add the background styling */
+    background-color: #ebddc6;
+    }
+    /* this is for header and set logo*/
+     .header2 {
+      display: flex;
+      align-items: center;
+      gap: 2px;
+      text-align: center;
+      padding: 20px 40px;
+      border-radius: 16px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .header img {
+      width: 100px; /* Adjust as needed */
+      height: 100px;
+    }
+    .school-name {
+      font-size: 1.91rem;
+      color: darkblue;
+      font-weight: bold;
+      text-shadow: 2px 2px 0px #000;    
+
+    }
+    /*logo End*/
+    a {
+      color: rgba(255, 255, 255, 0.3);
+      text-decoration: none;
+    }
+    a:hover, a:focus {
+      text-decoration: underline;
+    }
+    header{
+      background: rgb(235,221,198,0.9 );
+      color: rgb(241, 10, 10);
+      padding: 1rem 2rem;
+      border-radius: 20px;
+      top: 0;
+      z-index: 1000;        
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      position: sticky;
+      box-shadow: #000;
+    }
+    .container{
+      max-width: 1100px;
+      text-align: center;
+      margin: 10;
+      padding: 0 1rem;
+      color: #f30909 ;
+    }
+    .logo {
+      font-size: 1.91rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      color: #08429e;
+    }
+    nav {
+      margin-top: 1rem;
+      margin-bottom: 0rem;
+    }
+    nav ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+    }
+    nav ul li {
+      display: inline;
+      margin: 0;
+    }
+    nav ul li a {
+      font-weight: 600;
+      padding: 0.75rem 1.5rem;
+      display: inline-block;
+      border-radius: 20px;
+      transition: background-color 0.3s ease;
+    }
+    nav ul li a:hover, nav ul li a{
+      background-color: black;
+      color: #ebddc6;
+    }
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #0c036e;
+      text-shadow: 2px 8px 6px rgba(255, 255, 255, 0.5);
+    }
+    .hero h1 {
+      font-size: 2.7rem;
+      text-align: center;
+      max-width: 1000px;
+      margin: 0.5rem;
+    }
+    /* Sections */
+    section {
+      padding: 1rem 1rem;
+      background: rgb(235,221,198, 0.5);
+      margin-top: 3rem;
+      margin-bottom: 3rem;
+      border-radius: 15px;
+    }
+    section:nth-child(even) {
+      background: rgba(255, 255, 255, 0.5);
+    }
+    section h2 {
+      text-align: center;
+      color: #eb2b09;
+      margin-bottom: 2.5rem;
+      font-weight: 700;
+      font-size: 2rem;
+    }
+    section a {
+      text-align: center;
+      color: #010213;
+      margin-bottom: 2.5rem;
+      font-weight: 500;
+      font-size: 1.5rem;
+    }
+    .about p, .academics p, .admissions p, .faculty p, .events p {
+      max-width: 900px;
+      margin: 10 auto 1.5rem auto;
+      font-size: 1.1rem;
+    }
+
+    
+    /* Academics list */
+    .academics ul {
+      max-width: 900px;
+      margin: 10 auto;
+      list-style: disc inside;
+      font-size: 1.1rem;
+    }
+
+    /* Faculty grid */
+    .faculty .faculty-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+      gap: 1.5rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .faculty-member {
+      background: whitesmoke;
+      border-radius: 6px;
+      box-shadow: 3px 20px 5px rgba(0,0,0,0.1);
+      padding: 1rem;
+      text-align: center;
+    }
+    .faculty-member img {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 60%;
+      margin-bottom: 0.85rem;
+      border: 6px solid #ebddc6;
+    }
+    .faculty-member h3 {
+      margin: 0.3rem 0 0.2rem;
+      color: #003366;
+    }
+    .faculty-member p {
+      margin: 0;
+      font-weight: 600;
+      color: #555;
+    }
+
+    /* Events list */
+    .events ul {
+      max-width: 900px;
+      margin: 0 auto;
+      list-style: none;
+      padding: 0;
+    }
+    .events li {
+      background: rgba(255, 255, 255);
+      margin-bottom: 0.8rem;
+      padding: 1rem;
+      border-radius: 6px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+      font-size: 1.1rem;
+      color: #222;
+    }
+    .events li strong {
+      color: #004080;
+    }
+
+    /* Contact Form */
+    .contact form {
+      max-width: 600px;
+      margin: 0 auto;
+      background: white;
+      padding: 1.5rem 2rem;
+      border-radius: 6px;
+      box-shadow: 0 2px 7px rgba(0,0,0,0.15);
+    }
+    .contact label {
+      display: block;
+      margin-bottom: 0.3rem;
+      font-weight: 600;
+      color: #eb2b09;
+    }
+    .contact input,
+    .contact textarea {
+      width: 100%;
+      padding: 0.5rem 0.75rem;
+      margin-bottom: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 1rem;
+      font-family: inherit;
+      resize: vertical;
+    }
+    .contact textarea {
+      min-height: 100px;
+    }
+    .contact button {
+      background-color: #ebddc6;
+      color: #ebddc6;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: 700;
+      transition: background-color 0.3s ease;
+    }
+    .contact button:hover,
+    .contact button{
+      background-color: #eb2b09;
+    }
+    .form-message {
+      text-align: center;
+      margin-top: 1rem;
+      font-weight: 600;
+      color: green;
+    }
+
+    /* Footer */
+    footer {
+       background: rgb(235,221,198,0.8);
+      color: white;
+      padding: 1rem 1rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      nav ul {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+    }
+
+     /* Custom CSS for hover effects */
+        .dropdown-menu {
+            display: none; /* Hidden by default */
+            position: absolute;
+            min-width: 10px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            border-radius: 1.5rem; /* Rounded corners */
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block; /* Show the dropdown menu on hover */
+        }
+
+        .dropdown-menu a {
+            color: #ebddc6;
+            padding: 14px 12px;
+            text-decoration: none;
+            background-color: #555;
+            display: block;
+            border-radius: 0.5rem; /* Rounded corners for links */
+        }
+
+        .dropdown-menu a:hover {
+            background-color: #ddd; /* Change background color on hover */
+            color: #555; /* Change text color on hover */
+        }
+
+        .dropdown-button {
+            background-color: #222; /* Default button color */
+            color: white;
+            padding: 0.9rem 2rem;
+            font-size: 0.85rem;
+            border: none;
+            cursor: pointer;
+            border-radius: .5rem; /* Rounded corners */
+            transition: background-color 0.2s ease; /* Smooth transition for color change */
+        }
